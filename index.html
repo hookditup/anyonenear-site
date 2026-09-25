@@ -210,15 +210,22 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);background:col
 .faq details[open] summary::after{content:"\2212"}
 .faq details p{color:var(--muted);margin:0 0 16px}
 
-/* CTA band */
-.cta-band{background:var(--accent);color:var(--on-accent);border-radius:24px;padding:40px 24px;text-align:center}
-.cta-band h2{color:var(--on-accent)}
-.cta-band p{opacity:.92;max-width:620px;margin:0 auto 22px}
+/* CTA band: ink card (brand "night") with the same blue button as the rest of
+   the page, plus a soft blue glow and the coral answer dot */
+.cta-band{position:relative;overflow:hidden;background:linear-gradient(135deg,#1b2433 0%,#111a2b 100%);color:#eaf0fa;border:1px solid #2a3550;border-radius:24px;padding:48px 24px;text-align:center;box-shadow:var(--shadow)}
+.cta-band::before{content:"";position:absolute;right:-120px;top:-140px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(47,107,255,.55),rgba(47,107,255,0) 68%);pointer-events:none}
+.cta-band::after{content:"";position:absolute;left:28px;bottom:28px;width:14px;height:14px;border-radius:50%;background:var(--highlight);box-shadow:0 0 0 6px rgba(255,122,89,.18);pointer-events:none}
+.cta-band>*{position:relative}
+.cta-band h2{color:#fff}
+.cta-band p{color:#b7c2d8;max-width:620px;margin:0 auto 22px}
 .cta-band .btn-row{justify-content:center}
-.cta-band .btn-primary{background:var(--on-accent);color:var(--accent)}
-.cta-band .btn-primary:hover{opacity:.9}
-.cta-band .btn-ghost{color:var(--on-accent);border-color:color-mix(in srgb,var(--on-accent) 55%,transparent)}
-.cta-band .btn-ghost:hover{border-color:var(--on-accent);color:var(--on-accent)}
+.cta-band .btn-primary{background:#2f6bff;color:#fff}
+.cta-band .btn-primary:hover{background:#1f55e0;color:#fff}
+.cta-band .btn-ghost{color:#eaf0fa;border-color:#3a4763}
+.cta-band .btn-ghost:hover{border-color:#6e9bff;color:#9ebaff}
+@media (prefers-color-scheme: dark){
+  .cta-band{background:linear-gradient(135deg,#1c2640 0%,#161e30 100%);border-color:#2f3d5e}
+}
 
 /* Footer */
 footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;font-size:.92rem;color:var(--muted)}
@@ -369,7 +376,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2m0 14H5.17L4 17.17V4h16z"/></svg></div>
           <h3>Messenger AI + phone alerts</h3>
-          <p>When someone messages your Page, an AI assistant answers instantly, gets their name and number (with permission to text or call), then hands them to you with an alert in the LeadConnector app.</p>
+          <p>When someone messages your Page, an AI assistant answers instantly, gets their name and number (with permission to text or call), then hands them to you with an alert in the AnyoneNear app on your phone.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35 10.55 20C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></svg></div>
@@ -513,7 +520,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         </details>
         <details>
           <summary>Does it work on my phone?</summary>
-          <p>Partly. Monitoring the groups needs Chrome on a computer. Lead alerts and conversations work on your phone through the LeadConnector app.</p>
+          <p>Partly. Monitoring the groups needs Chrome on a computer. Lead alerts, reply approvals and conversations work on your phone through the AnyoneNear app — a web app you add to your Home Screen, no app store needed.</p>
         </details>
       </div>
     </div>
