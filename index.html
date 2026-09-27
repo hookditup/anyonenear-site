@@ -613,7 +613,9 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
     if (ref) localStorage.setItem("an_ref", JSON.stringify({ ref: ref, t: Date.now() }));
     else { var saved = JSON.parse(localStorage.getItem("an_ref") || "null"); if (saved && Date.now() - saved.t < 30 * 864e5) ref = saved.ref; }
   } catch (e) {}
-  var signup = SIGNUP_URL + (ref ? "?ref=" + encodeURIComponent(ref) : "");
+  // Both ways, so the order can be credited either from the form's hidden
+  // field (ref) or from where HighLevel records the contact came from (UTM).
+  var signup = SIGNUP_URL + (ref ? "?ref=" + encodeURIComponent(ref) + "&utm_source=partner&utm_medium=referral&utm_campaign=" + encodeURIComponent(ref) : "");
   document.querySelectorAll("[data-signup-link]").forEach(function(a){ a.href = signup; });
   document.querySelectorAll("[data-upgrade-link]").forEach(function(a){ a.href = UPGRADE_URL; });
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
