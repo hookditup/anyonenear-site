@@ -97,6 +97,7 @@ section{padding:64px 0}
 }
 .btn-primary{background:var(--accent);color:var(--on-accent)}
 .btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
+[hidden]{display:none!important}
 .btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 .btn-row{display:flex;flex-wrap:wrap;gap:12px}
@@ -288,9 +289,10 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         </ul>
         <div class="btn-row">
           <a class="btn btn-primary" data-signup-link href="https://link.hookditup.com/widget/form/vD5enk4lGYAeW4K4X6MY">Get started</a>
+          <a class="btn btn-ghost" data-trial hidden data-trial-link href="#pricing">Try it free for 14 days</a>
           <a class="btn btn-ghost" href="tel:+14352362946">Questions? Call (435) 236-2946</a>
         </div>
-        <p class="fineprint">Plans from $149/month. Cancel anytime.</p>
+        <p class="fineprint">Plans from $149/month. Cancel anytime.<span data-trial hidden> Free 14-day trial.</span></p>
       </div>
 
       <figure class="mock" aria-label="Illustration: a sample Facebook group post asking for an AC company, with a reply AnyoneNear posted automatically">
@@ -343,7 +345,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
       <ol class="steps">
         <li>
           <h3>Pick your groups and trade</h3>
-          <p>Tell us what you do and where you work. The group finder searches Facebook for the busiest local groups around you, or pick your own. We set up the Chrome extension and your lead inbox.</p>
+          <p>After you order, sign in to the AnyoneNear app on your phone and tell us your business, town and trade. The group finder searches Facebook for the busiest local groups around you, or pick your own. We set up the Chrome extension and your lead inbox.</p>
         </li>
         <li>
           <h3>We find the buyers</h3>
@@ -435,6 +437,8 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         <h2 id="pricing-title">Simple monthly plans</h2>
         <p class="lead">Monthly billing. Cancel anytime.</p>
       </div>
+
+      <p class="beta" data-trial hidden><b>Try Starter free for 14 days</b> with 300 AI lead checks, the phone app and Messenger AI. A card is needed to start; your plan begins on day 15 unless you cancel. <a data-trial-link href="#pricing">Start your free trial</a></p>
 
       <div class="plans">
         <article class="plan" aria-labelledby="plan-starter">
@@ -552,6 +556,10 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
           <summary>What happens when I hit my lead-check limit?</summary>
           <p>You'll get a heads-up at 80%. If you reach the limit, lead checks pause until the 1st of the month, or you can upgrade to Pro for more.</p>
         </details>
+        <details data-trial hidden>
+          <summary>Is there a free trial?</summary>
+          <p>Yes. Starter is free for 14 days, with 300 AI lead checks for the whole trial. A card is needed to start, and your plan begins on day 15 unless you cancel. If you use up the trial's lead checks early, start your plan from the app to keep going.</p>
+        </details>
         <details>
           <summary>How do I know it's paying off?</summary>
           <p>The app shows the jobs you won from Facebook this month in dollars, next to your plan price. Payments made through your lead inbox count automatically; other jobs take one tap ("Did you get the job?" a day after an appointment). You also get a report on the 1st of every month.</p>
@@ -611,6 +619,8 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
   // Swap these when links change.
   var SIGNUP_URL = "https://link.hookditup.com/widget/form/vD5enk4lGYAeW4K4X6MY";
   var UPGRADE_URL = "https://link.hookditup.com/widget/form/VgXHX9fQHTnDvQx6X1R4"; // AnyoneNear Upgrades order form
+  // The 14-day trial order form. Empty = every trial mention stays hidden.
+  var TRIAL_URL = "";
   // Reseller referral: ?ref=<agency code> is remembered for 30 days and passed
   // to the order form, whose hidden "Reseller code" field picks it up.
   var ref = "";
@@ -624,6 +634,11 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
   var signup = SIGNUP_URL + (ref ? "?ref=" + encodeURIComponent(ref) + "&utm_source=partner&utm_medium=referral&utm_campaign=" + encodeURIComponent(ref) : "");
   document.querySelectorAll("[data-signup-link]").forEach(function(a){ a.href = signup; });
   document.querySelectorAll("[data-upgrade-link]").forEach(function(a){ a.href = UPGRADE_URL; });
+  if (TRIAL_URL) {
+    var trial = TRIAL_URL + (ref ? "?ref=" + encodeURIComponent(ref) + "&utm_source=partner&utm_medium=referral&utm_campaign=" + encodeURIComponent(ref) : "");
+    document.querySelectorAll("[data-trial-link]").forEach(function(a){ a.href = trial; });
+    document.querySelectorAll("[data-trial]").forEach(function(el){ el.hidden = false; });
+  }
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
 </script>
 </body>
