@@ -164,7 +164,8 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);background:col
   .feature:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 9px)}}
 @media (min-width:1024px){.features{grid-template-columns:repeat(6,1fr)}
   .feature{grid-column:span 2}
-  .feature:nth-last-child(2):nth-child(3n+1){grid-column:2/span 2}}
+  .feature:nth-last-child(2):nth-child(3n+1){grid-column:2/span 2}
+  .feature:last-child:nth-child(3n+1){grid-column:3/span 2}}
 .fn{color:var(--highlight);margin-left:2px}
 .footnote{margin:18px 0 0;font-size:.88rem;color:var(--muted)}
 .footnote span{color:var(--highlight);margin-right:4px}
@@ -389,9 +390,14 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
           <p>We set it up for you, with a free phone app. Each lead arrives with the post, what they need, and where they are in your follow-up.</p>
         </article>
         <article class="feature">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 16H5V9h14zM7 11h5v5H7z"/></svg></div>
+          <h3>Book and follow up from your phone</h3>
+          <p>See your open times and book the lead in a tap. Add notes and follow-up reminders, and anyone who opts out of texts is marked so they aren't texted.</p>
+        </article>
+        <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2m0 14H5.17L4 17.17V4h16z"/></svg></div>
           <h3>Messenger AI + phone alerts</h3>
-          <p>When someone messages your Page, an AI assistant answers for you, gets their name and number (with permission to text or call), then hands them to you with an alert in the AnyoneNear app on your phone.</p>
+          <p>When someone messages your Page, an AI assistant answers for you from your business info (what you do, where you work, how to reach you), gets their name and number (with permission to text or call), then hands them to you with an alert in the AnyoneNear app on your phone.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35 10.55 20C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></svg></div>
@@ -401,7 +407,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4"/></svg></div>
           <h3>Shows the jobs it won you</h3>
-          <p>Get paid through your lead inbox and the job counts itself, with the real amount. Otherwise, a day after an appointment it asks "Did you get the job?" with one-tap Won or Lost. You see the dollars next to what you pay.</p>
+          <p>Get paid through your lead inbox and the job counts itself, with the real amount. Otherwise, a day after an appointment it asks "Did you get the job?" with one-tap Won or Lost. Estimates and payments show on each lead, and you see the dollars next to what you pay.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 1H9v2h6zm-4 13h2V8h-2zm8.03-6.61 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.96 8.96 0 0 0 12 4a9 9 0 1 0 9 9c0-2.12-.74-4.07-1.97-5.61M12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7"/></svg></div>
@@ -411,7 +417,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2M9 17H7v-7h2zm4 0h-2V7h2zm4 0h-2v-4h2z"/></svg></div>
           <h3>A monthly report</h3>
-          <p>On the 1st, a simple email and in-app report: leads found, replies posted, who messaged you, appointments, jobs won and the groups your leads came from.</p>
+          <p>On the 1st, a simple email and in-app report: leads found, replies posted, who messaged you, appointments, estimates, jobs won, payments collected and the groups your leads came from.</p>
         </article>
       </div>
       <p class="footnote"><span aria-hidden="true">*</span> Built-in limits keep activity at a normal, human pace to help protect your Facebook account. You control them.</p>
@@ -440,11 +446,13 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
             <li>1,000 AI lead checks per month</li>
             <li>AI-drafted replies with Page tagging</li>
             <li>Your own lead inbox and phone app</li>
-            <li>Messenger AI nurture &amp; handoff</li>
+            <li>Booking, notes and follow-up reminders on every lead</li>
+            <li>Messenger AI that knows your business, with handoff</li>
             <li>Mobile lead alerts</li>
             <li>Mention catching</li>
             <li>Group finder</li>
-            <li>Jobs-won tracking and monthly report</li>
+            <li>Estimates, payments and jobs won on each lead</li>
+            <li>Monthly report</li>
           </ul>
           <a class="btn btn-ghost" data-signup-link href="https://link.hookditup.com/widget/form/vD5enk4lGYAeW4K4X6MY">Get started with Starter</a>
         </article>
@@ -480,7 +488,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         </article>
         <article class="addon">
           <div class="addon-top"><h3>Voice AI Lead Callback</h3><span class="amt">$149/mo</span></div>
-          <p>An AI voice agent calls qualified leads back for you, day or night. Includes 150 minutes.</p>
+          <p>An AI voice agent calls qualified leads back for you, day or night, and can book an estimate on your calendar during the call. Each call's summary and transcript shows on the lead. Includes 150 minutes.</p>
           <p class="more">Want it answering all your calls and website chat? See our full <a href="https://hookditup.com/ai-receptionist/">AI Receptionist from $497/mo</a>.</p>
           <a class="btn btn-ghost" data-upgrade-link href="#addons-contact">Add Voice AI Callback</a>
         </article>
