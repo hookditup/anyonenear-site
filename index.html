@@ -98,6 +98,7 @@ section{padding:64px 0}
 .btn-primary{background:var(--accent);color:var(--on-accent)}
 .btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
 [hidden]{display:none!important}
+.trial-link{display:block;text-align:center;margin-top:10px;font-size:.9rem;font-weight:600;color:var(--accent)}
 .btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 .btn-row{display:flex;flex-wrap:wrap;gap:12px}
@@ -172,6 +173,10 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);background:col
 .footnote span{color:var(--highlight);margin-right:4px}
 .feature{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
 .feature p{color:var(--muted);margin:0;font-size:.97rem}
+.feature p.addon-note{margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);font-size:.88rem}
+.feature a{color:var(--accent);font-weight:600}
+.addon{scroll-margin-top:90px}
+.addon:target{outline:3px solid var(--accent);outline-offset:2px}
 .icon{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:12px}
 .icon svg{width:22px;height:22px}
 .honest{margin-top:28px;border-left:4px solid var(--highlight);background:var(--surface);border-radius:0 12px 12px 0;padding:16px 18px}
@@ -376,6 +381,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"/></svg></div>
           <h3>Watches your local groups</h3>
           <p>A Chrome extension keeps an eye on the groups you choose for posts like "anyone know a good AC tech?"</p>
+          <p class="addon-note">Add-on: <a href="#addon-keep-running">Keep It Running</a> sets your computer up to stay on watch by itself.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9z"/></svg></div>
@@ -391,26 +397,30 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4zm0 5h10v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg></div>
           <h3>Your own lead inbox</h3>
           <p>We set it up for you, with a free phone app. Each lead arrives with the post, what they need, and where they are in your follow-up.</p>
+          <p class="addon-note">Add-on: <a href="#addon-reactivation">Lead Reactivation</a> re-engages the leads that went cold.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 16H5V9h14zM7 11h5v5H7z"/></svg></div>
           <h3>Book and follow up from your phone</h3>
           <p>See your open times and book the lead in a tap. Add notes and follow-up reminders, and anyone who opts out of texts is marked so they aren't texted.</p>
+          <p class="addon-note">Add-ons: <a href="#addon-sms">SMS Follow-up</a> texts leads from your business number, and <a href="#addon-voice-ai">Voice AI Lead Callback</a> calls them back and can book the estimate for you.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2m0 14H5.17L4 17.17V4h16z"/></svg></div>
           <h3>Messenger AI + phone alerts</h3>
           <p>When someone messages your Page, an AI assistant answers for you from your business info (what you do, where you work, how to reach you), gets their name and number (with permission to text or call), then hands them to you with an alert in the AnyoneNear app on your phone.</p>
+          <p class="addon-note">Add-ons: <a href="#addon-sms">SMS Follow-up</a> also texts you and your team when a lead is ready for a call, and the <a href="#addon-chat-widget">AI Chat Widget</a> answers people who go to your website instead.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35 10.55 20C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></svg></div>
           <h3>Catches recommendations</h3>
-          <p>When someone recommends your business by name, you'll know. It thanks them publicly and offers to help the person who asked. If they're a past customer, Review Booster can ask them for a review.</p>
+          <p>When someone recommends your business by name, you'll know. It thanks them publicly and offers to help the person who asked. If they're a past customer, <a href="#addon-review-booster">Review Booster</a> can ask them for a review.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4"/></svg></div>
           <h3>Shows the jobs it won you</h3>
           <p>Get paid through your lead inbox and the job counts itself, with the real amount. Otherwise, a day after an appointment it asks "Did you get the job?" with one-tap Won or Lost. Estimates and payments show on each lead, and you see the dollars next to what you pay.</p>
+          <p class="addon-note">Add-on: <a href="#addon-review-booster">Review Booster</a> asks for a review after every job you win.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 1H9v2h6zm-4 13h2V8h-2zm8.03-6.61 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.96 8.96 0 0 0 12 4a9 9 0 1 0 9 9c0-2.12-.74-4.07-1.97-5.61M12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7"/></svg></div>
@@ -425,7 +435,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
       </div>
       <p class="footnote"><span aria-hidden="true">*</span> Built-in limits keep activity at a normal, human pace to help protect your Facebook account. You control them.</p>
       <div class="honest">
-        <p><strong>Good to know:</strong> the extension runs in Chrome on your computer, so it only watches your groups while that computer is on and Chrome is open. Alerts and conversations still reach your phone.</p>
+        <p><strong>Good to know:</strong> the extension runs in Chrome on your computer, so it only watches your groups while that computer is on and Chrome is open. Alerts and conversations still reach your phone. Want it handled for you? <a href="#addon-keep-running">Keep It Running</a>.</p>
       </div>
     </div>
   </section>
@@ -439,7 +449,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         <p class="lead">Monthly billing. Cancel anytime.</p>
       </div>
 
-      <p class="beta" data-trial hidden><b>Try Starter free for 14 days</b> with 300 AI lead checks, the phone app and Messenger AI. A card is needed to start; your plan begins on day 15 unless you cancel. <a data-trial-link href="#pricing">Start your free trial</a></p>
+      <p class="beta" data-trial hidden><b>Try either plan free for 14 days</b> with 300 AI lead checks, the phone app and Messenger AI. A card is needed to start; your plan begins on day 15 unless you cancel. <a data-trial-link href="#pricing">Try Starter free</a> · <a data-trial-link="pro" href="#pricing">Try Pro free</a></p>
 
       <div class="plans">
         <article class="plan" aria-labelledby="plan-starter">
@@ -460,6 +470,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
             <li>Monthly report</li>
           </ul>
           <a class="btn btn-ghost" data-signup-link href="https://link.hookditup.com/widget/form/vD5enk4lGYAeW4K4X6MY">Get started with Starter</a>
+          <a class="trial-link" data-trial hidden data-trial-link href="#pricing">or try Starter free for 14 days</a>
         </article>
 
         <article class="plan featured" aria-labelledby="plan-pro">
@@ -472,6 +483,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
             <li>Everything in Starter</li>
           </ul>
           <a class="btn btn-primary" data-signup-link href="https://link.hookditup.com/widget/form/vD5enk4lGYAeW4K4X6MY">Get started with Pro</a>
+          <a class="trial-link" data-trial hidden data-trial-link="pro" href="#pricing">or try Pro free for 14 days</a>
         </article>
       </div>
 
@@ -486,43 +498,43 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
       </div>
 
       <div class="addons">
-        <article class="addon">
+        <article class="addon" id="addon-sms">
           <div class="addon-top"><h3>SMS Follow-up</h3><span class="amt">$49/mo</span></div>
           <p>Texts qualified leads a confirmation from your own business number, and texts you and your team when a lead is ready for a call. Includes 500 texts; usage beyond that is billed at cost + 20%. Requires business texting registration (A2P 10DLC; carrier fees passed through).</p>
           <a class="btn btn-ghost" data-upgrade-link href="#addons-contact">Add SMS Follow-up</a>
         </article>
-        <article class="addon">
+        <article class="addon" id="addon-voice-ai">
           <div class="addon-top"><h3>Voice AI Lead Callback</h3><span class="amt">$149/mo</span></div>
           <p>An AI voice agent calls qualified leads back for you, day or night, and can book an estimate on your calendar during the call. Each call's summary and transcript shows on the lead. Includes 150 minutes.</p>
           <a class="btn btn-ghost" data-upgrade-link href="#addons-contact">Add Voice AI Callback</a>
         </article>
-        <article class="addon">
+        <article class="addon" id="addon-review-booster">
           <div class="addon-top"><h3>Review Booster</h3><span class="amt">$79/mo</span></div>
           <p>Automatic review requests after jobs you win, and for past customers who recommend you in a group.</p>
           <a class="btn btn-ghost" data-upgrade-link href="#addons-contact">Add Review Booster</a>
         </article>
-        <article class="addon">
+        <article class="addon" id="addon-chat-widget">
           <div class="addon-top"><h3>AI Chat Widget</h3><span class="amt">$79/mo</span></div>
           <p>Catches the people who saw your reply and went to your website instead of messaging.</p>
           <a class="btn btn-ghost" data-upgrade-link href="#addons-contact">Add AI Chat Widget</a>
         </article>
-        <article class="addon">
+        <article class="addon" id="addon-website">
           <div class="addon-top"><h3>Website build</h3><span class="amt">from $500 one-time</span></div>
           <p>A fast, clean website for your business so people who find you on Facebook have somewhere to land.</p>
           <p class="more"><a href="https://hookditup.com/custom-website-design-services/index.html">See website design services</a></p>
           <a class="btn btn-ghost" href="#addons-contact">Ask about a website</a>
         </article>
-        <article class="addon">
+        <article class="addon" id="addon-reactivation">
           <div class="addon-top"><h3>Lead Reactivation campaign</h3><span class="amt">$297 per campaign</span></div>
           <p>Re-engage leads that went cold. Each campaign covers 500 to 2,000 contacts. Email and SMS sending isn't included; additional charges apply.</p>
           <a class="btn btn-ghost" data-upgrade-link href="#addons-contact">Add a campaign</a>
         </article>
-        <article class="addon">
+        <article class="addon" id="addon-keep-running">
           <div class="addon-top"><h3>Keep It Running</h3><span class="amt">$99 one-time</span></div>
           <p>Done for you: in a 20-minute screen-share we set your computer to stay awake and restart monitoring on its own, test it, then watch your uptime for 30 days. <a href="keep-running/">How it works</a></p>
           <a class="btn btn-ghost" data-upgrade-link href="#addons-contact">Add setup</a>
         </article>
-        <article class="addon bundle">
+        <article class="addon bundle" id="addon-bundle">
           <div class="addon-top"><h3>Full Follow-up bundle</h3><span class="save">Save $48</span></div>
           <p><span class="amt">$229/mo</span> for SMS Follow-up + Voice AI Lead Callback + Review Booster together.</p>
           <a class="btn btn-primary" data-upgrade-link href="#addons-contact">Add the bundle</a>
@@ -559,7 +571,7 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
         </details>
         <details data-trial hidden>
           <summary>Is there a free trial?</summary>
-          <p>Yes. Starter is free for 14 days, with 300 AI lead checks for the whole trial. A card is needed to start, and your plan begins on day 15 unless you cancel. If you use up the trial's lead checks early, start your plan from the app to keep going.</p>
+          <p>Yes. Starter and Pro are both free for 14 days, with 300 AI lead checks for the whole trial. A card is needed to start, and your plan begins on day 15 unless you cancel. If you use up the trial's lead checks early, start your plan from the app to keep going.</p>
         </details>
         <details>
           <summary>How do I know it's paying off?</summary>
@@ -620,8 +632,9 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
   // Swap these when links change.
   var SIGNUP_URL = "https://link.hookditup.com/widget/form/vD5enk4lGYAeW4K4X6MY";
   var UPGRADE_URL = "https://link.hookditup.com/widget/form/VgXHX9fQHTnDvQx6X1R4"; // AnyoneNear Upgrades order form
-  // The 14-day trial order form. Empty = every trial mention stays hidden.
-  var TRIAL_URL = "";
+  // The 14-day trial payment links (Starter, Pro). Empty = every trial mention stays hidden.
+  var TRIAL_URL = "https://link.hookditup.com/payment-link/6ab2d6659a013c156f1f9877";
+  var TRIAL_PRO_URL = "https://link.hookditup.com/payment-link/6abaad4ebaea3cadef54fc07";
   // Reseller referral: ?ref=<agency code> is remembered for 30 days and passed
   // to the order form, whose hidden "Reseller code" field picks it up.
   var ref = "";
@@ -636,8 +649,10 @@ footer{border-top:1px solid var(--border);padding:36px 0 44px;margin-top:64px;fo
   document.querySelectorAll("[data-signup-link]").forEach(function(a){ a.href = signup; });
   document.querySelectorAll("[data-upgrade-link]").forEach(function(a){ a.href = UPGRADE_URL; });
   if (TRIAL_URL) {
-    var trial = TRIAL_URL + (ref ? "?ref=" + encodeURIComponent(ref) + "&utm_source=partner&utm_medium=referral&utm_campaign=" + encodeURIComponent(ref) : "");
-    document.querySelectorAll("[data-trial-link]").forEach(function(a){ a.href = trial; });
+    var q = ref ? "?ref=" + encodeURIComponent(ref) + "&utm_source=partner&utm_medium=referral&utm_campaign=" + encodeURIComponent(ref) : "";
+    document.querySelectorAll("[data-trial-link]").forEach(function(a){
+      a.href = (a.getAttribute("data-trial-link") === "pro" && TRIAL_PRO_URL ? TRIAL_PRO_URL : TRIAL_URL) + q;
+    });
     document.querySelectorAll("[data-trial]").forEach(function(el){ el.hidden = false; });
   }
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
