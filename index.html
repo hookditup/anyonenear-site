@@ -267,6 +267,13 @@ footer{background:var(--surface-2);border-top:1px solid var(--border);padding:36
 .foot a{color:var(--muted)}
 .foot a:hover{color:var(--accent)}
 .disclaimer{font-size:.8rem;margin-top:18px}
+.ref-dialog{border:0;border-radius:16px;padding:26px;max-width:420px;width:calc(100% - 32px);background:var(--surface,#fff);color:inherit;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.ref-dialog::backdrop{background:rgba(10,15,25,.55)}
+.ref-dialog h3{margin:0 0 8px}
+.ref-dialog p{margin:0 0 14px;font-size:.95rem;opacity:.85}
+.ref-dialog label{display:block;font-weight:600;margin-bottom:6px}
+.ref-dialog input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(127,127,127,.4);font:inherit;background:transparent;color:inherit}
+.ref-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
 </style>
 <script src="/analytics.js" defer></script>
 </head>
@@ -413,7 +420,7 @@ footer{background:var(--surface-2);border-top:1px solid var(--border);padding:36
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 16H5V9h14zM7 11h5v5H7z"/></svg></div>
           <h3>Follow up from your phone</h3>
           <p>Every lead's post, conversation and phone number in one place. Add notes and follow-up reminders, and anyone who opts out of texts is marked so they aren't texted.</p>
-          <p class="addon-note">Add-ons: <a href="#addon-booking">Booking &amp; Reminders</a> sends confirmations and reminders so fewer people no-show, <a href="#addon-sms">SMS Follow-up</a> texts leads from your business number, and <a href="#addon-voice-ai">Voice AI Lead Callback</a> calls them back and can book the estimate for you.</p>
+          <p class="addon-note">Add-ons: <a href="#addon-booking">Booking &amp; Reminders</a> books leads onto your calendar and sends confirmations and reminders so fewer people no-show, <a href="#addon-sms">SMS Follow-up</a> texts leads from your business number, and <a href="#addon-voice-ai">Voice AI Lead Callback</a> calls them back and can book the estimate for you.</p>
         </article>
         <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2m0 14H5.17L4 17.17V4h16z"/></svg></div>
@@ -517,8 +524,8 @@ footer{background:var(--surface-2);border-top:1px solid var(--border);padding:36
           <a class="btn btn-ghost" data-upgrade-link href="#addons-contact">Add Voice AI Callback</a>
         </article>
         <article class="addon" id="addon-booking">
-          <div class="addon-top"><h3>Booking &amp; Reminders</h3><span class="amt">$49/mo</span></div>
-          <p>A booking link for your website and messages, a confirmation when someone books, reminders the day before and 2 hours before, and a "sorry we missed you" message with a new booking link after a no-show. Email, plus texts if you have SMS Follow-up. You get an alert for every new, moved or cancelled booking.</p>
+          <div class="addon-top"><h3>Booking &amp; Reminders</h3><span class="amt">$29/mo</span></div>
+          <p>Book a lead onto your calendar from your phone in a tap, and give customers a booking link for your website and messages. Everyone who books gets a confirmation, reminders the day before and 2 hours before, and a new booking link if they miss it. You get an alert for every new, moved or cancelled booking. Sent by email; texts too with <a href="#addon-sms">SMS Follow-up</a>.</p>
           <a class="btn btn-ghost" href="#addons-contact">Ask about Booking &amp; Reminders</a>
         </article>
         <article class="addon" id="addon-review-booster">
@@ -642,6 +649,15 @@ footer{background:var(--surface-2);border-top:1px solid var(--border);padding:36
   </div>
 </footer>
 
+<dialog id="ref-dialog" class="ref-dialog" aria-labelledby="ref-title">
+  <form id="ref-form">
+    <h3 id="ref-title">Start your free trial</h3>
+    <p>Enter the email you'll use at checkout, so your account is set up with the partner who sent you.</p>
+    <label for="ref-email">Email</label>
+    <input id="ref-email" type="email" required autocomplete="email" placeholder="you@yourbusiness.com">
+    <div class="ref-actions"><button type="button" class="btn btn-ghost" id="ref-cancel">Cancel</button><button type="submit" class="btn btn-primary">Continue to checkout</button></div>
+  </form>
+</dialog>
 <script>
   // Swap these when links change.
   var SIGNUP_URL = "https://link.hookditup.com/widget/form/vD5enk4lGYAeW4K4X6MY";
@@ -668,6 +684,31 @@ footer{background:var(--surface-2);border-top:1px solid var(--border);padding:36
       a.href = (a.getAttribute("data-trial-link") === "pro" && TRIAL_PRO_URL ? TRIAL_PRO_URL : TRIAL_URL) + q;
     });
     document.querySelectorAll("[data-trial]").forEach(function(el){ el.hidden = false; });
+    // Partner visitors: HighLevel payment links can't carry the partner code,
+    // so ask for the email first and record it (ref-claim); the order is then
+    // credited to the partner. Everyone else goes straight to the payment link.
+    if (ref) {
+      var dlg = document.getElementById("ref-dialog"), target = "";
+      document.querySelectorAll("[data-trial-link]").forEach(function(a){
+        a.addEventListener("click", function(e){
+          if (!dlg || typeof dlg.showModal !== "function") return;
+          e.preventDefault(); target = a.href; dlg.showModal(); document.getElementById("ref-email").focus();
+        });
+      });
+      document.getElementById("ref-form").addEventListener("submit", function(e){
+        e.preventDefault();
+        var email = document.getElementById("ref-email").value.trim();
+        var go = function(){ location.href = target; };
+        try {
+          fetch("https://citzcbytydvrrqxbzkli.supabase.co/functions/v1/ref-claim", {
+            method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true,
+            body: JSON.stringify({ email: email, ref: ref })
+          }).then(go, go);
+          setTimeout(go, 1500);
+        } catch (err) { go(); }
+      });
+      document.getElementById("ref-cancel").addEventListener("click", function(){ dlg.close(); });
+    }
   }
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
 </script>
