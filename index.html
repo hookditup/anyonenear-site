@@ -96,6 +96,8 @@ section{padding:64px 0}
   text-align:center;
 }
 .btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-lg{min-height:60px;padding:16px 34px;font-size:1.2rem;box-shadow:0 10px 24px rgba(47,107,255,.28)}
+@media (max-width:480px){.btn-lg{font-size:1.05rem;padding:14px 20px;width:100%}}
 .btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
 [hidden]{display:none!important}
 .btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
@@ -104,13 +106,15 @@ section{padding:64px 0}
 
 /* Header */
 header.site{position:sticky;top:0;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--border)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:76px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:"Sora",sans-serif;font-weight:800;font-size:1rem;white-space:nowrap}
 .brand img{height:34px;width:auto}
-.nav ul{display:none;list-style:none;margin:0;padding:0;gap:22px}
-.nav ul a{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem}
+.nav ul{display:none;list-style:none;margin:0;padding:0;gap:30px}
+.nav ul a{color:var(--muted);text-decoration:none;font-weight:700;font-size:1.08rem}
 .nav ul a:hover{color:var(--accent)}
-.nav .btn{min-height:40px;padding:8px 16px;font-size:.92rem}
+.nav .btn{min-height:48px;padding:10px 22px;font-size:1.05rem}
+@media (max-width:480px){.nav .btn{min-height:42px;padding:8px 16px;font-size:.95rem}.brand img{height:28px}}
+.nav .btn{white-space:nowrap}
 @media (min-width:860px){.nav ul{display:flex}}
 
 /* Hero */
@@ -301,7 +305,7 @@ footer{background:var(--surface-2);border-top:1px solid var(--border);padding:36
           <li>See the jobs it helped you win, in dollars, next to what you pay.</li>
         </ul>
         <div class="btn-row">
-          <a class="btn btn-primary" data-trial-link href="#pricing">Start your free 14-day trial</a>
+          <a class="btn btn-primary btn-lg" data-trial-link href="#pricing">Start your free 14-day trial</a>
           <a class="btn btn-ghost" data-upgrade-link href="https://link.hookditup.com/widget/form/VgXHX9fQHTnDvQx6X1R4">Already a customer? Upgrade</a>
         </div>
         <p class="fineprint">Then plans from $149/month. Cancel anytime. Questions? Call <a href="tel:+14352362946">(435) 236-2946</a>.</p>
