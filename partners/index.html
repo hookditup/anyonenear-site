@@ -22,9 +22,6 @@ a{color:var(--accent)}a:hover{color:var(--accent-hover)}
 h1,h2,h3{font-family:"Sora","Plus Jakarta Sans",sans-serif;line-height:1.2;margin:0 0 .5em;text-wrap:balance}
 h1{font-size:clamp(2rem,4.5vw,2.8rem)}h2{font-size:1.5rem;margin-top:0}h3{font-size:1.1rem}
 .wrap{max-width:880px;margin:0 auto;padding-inline:16px}
-header{padding-block:22px;border-bottom:1px solid var(--border)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
-header img{height:30px;width:auto;display:block}
 .hero{padding-block:48px 24px}
 .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
 .lead{font-size:1.1rem;color:var(--muted);max-width:62ch}
@@ -50,12 +47,19 @@ summary{cursor:pointer;font-weight:700}
 footer{padding-block:32px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border);margin-top:32px}
 code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9em}
 </style>
+<link rel="stylesheet" href="/shared.css">
 <script src="/analytics.js" defer></script>
 </head>
 <body>
-<header><div class="wrap">
-  <a href="../index.html" aria-label="AnyoneNear home"><picture><source srcset="../wordmark-white.svg" media="(prefers-color-scheme: dark)"><img src="../wordmark-night.svg" alt="AnyoneNear" width="181" height="30"></picture></a>
-  <a class="btn btn-ghost" href="../index.html">What it does</a>
+<header class="an-hdr"><div class="an-hdr-in">
+  <a class="an-brand" href="/" aria-label="AnyoneNear home"><picture><source srcset="/wordmark-white.svg" media="(prefers-color-scheme: dark)"><img src="/wordmark-night.svg" alt="AnyoneNear" width="193" height="32"></picture></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul></nav>
+  <a class="an-cta" data-trial-link href="https://link.hookditup.com/payment-link/6ab2d6659a013c156f1f9877">Free trial</a>
 </div></header>
 
 <main class="wrap">
@@ -114,6 +118,22 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
   </div>
 </main>
 
-<footer><div class="wrap">AnyoneNear is a product of Hook'd IT Up. · <a href="../terms.html">Terms</a></div></footer>
+<footer class="an-ftr"><div class="an-ftr-in">
+  <div class="an-foot">
+    <div>
+      <strong style="color:var(--text)">any<span style="color:var(--accent)">one</span>near</strong> is a product of Hook'd IT Up.<br>
+      &copy; 2026 Hook'd IT Up, Heber City, Utah
+    </div>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/keep-running/">Keep It Running</a></li>
+      <li><a href="/partners/">Partners</a></li>
+      <li><a href="https://hookditup.com/privacy-policy/index.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="tel:+14352362946">(435) 236-2946</a></li>
+    </ul></nav>
+  </div>
+  <p class="disclaimer">Not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
 </body>
 </html>

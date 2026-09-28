@@ -10,14 +10,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f8fc;--surface:#fff;--text:#1b2433;--muted:#55607a;--border:#d8e0ee;--accent:#2f6bff;--warn-bg:#fff4d6;--warn-text:#5a3b00;--warn-border:#e8a23a}
-@media (prefers-color-scheme: dark){:root{--bg:#0e1422;--surface:#161e30;--text:#eaf0fa;--muted:#a3afc6;--border:#2a3550;--accent:#6e9bff;--warn-bg:#3a2a07;--warn-text:#ffe2a3;--warn-border:#f0b85c}}
+:root{--bg:#f6f8fc;--surface:#fff;--surface-2:#eef2fa;--accent-hover:#1f55e0;--on-accent:#fff;--text:#1b2433;--muted:#55607a;--border:#d8e0ee;--accent:#2f6bff;--warn-bg:#fff4d6;--warn-text:#5a3b00;--warn-border:#e8a23a}
+@media (prefers-color-scheme: dark){:root{--bg:#0e1422;--surface:#161e30;--surface-2:#1c2640;--accent-hover:#93b5ff;--on-accent:#0b1530;--text:#eaf0fa;--muted:#a3afc6;--border:#2a3550;--accent:#6e9bff;--warn-bg:#3a2a07;--warn-text:#ffe2a3;--warn-border:#f0b85c}}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.65;overflow-x:hidden}
 a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--warn-border);outline-offset:2px}
 .wrap{max-width:780px;margin:0 auto;padding:0 16px}
-header{padding:28px 0 8px}
 .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:"Sora",sans-serif;font-weight:800}
 .brand img{width:36px;height:36px}
 h1,h2{font-family:"Sora",sans-serif;line-height:1.25}
@@ -30,13 +29,21 @@ li{margin-bottom:.4em}
 footer{border-top:1px solid var(--border);padding:24px 0 40px;color:var(--muted);font-size:.9rem}
 footer a{color:var(--muted)}
 </style>
+<link rel="stylesheet" href="/shared.css">
 <script src="/analytics.js" defer></script>
 </head>
 <body>
+<header class="an-hdr"><div class="an-hdr-in">
+  <a class="an-brand" href="/" aria-label="AnyoneNear home"><picture><source srcset="/wordmark-white.svg" media="(prefers-color-scheme: dark)"><img src="/wordmark-night.svg" alt="AnyoneNear" width="193" height="32"></picture></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul></nav>
+  <a class="an-cta" data-trial-link href="https://link.hookditup.com/payment-link/6ab2d6659a013c156f1f9877">Free trial</a>
+</div></header>
 <div class="wrap">
-  <header>
-    <a class="brand" href="index.html"><picture><source srcset="wordmark-white.svg" media="(prefers-color-scheme: dark)"><img src="wordmark-night.svg" alt="AnyoneNear" width="205" height="34" style="height:34px;width:auto"></picture></a>
-  </header>
 
   <main>
     <h1>Terms of Service</h1>
@@ -99,11 +106,22 @@ footer a{color:var(--muted)}
   </main>
 </div>
 
-<footer>
-  <div class="wrap">
-    &copy; 2026 Hook'd IT Up, Heber City, Utah · <a href="index.html">Home</a> · <a href="https://hookditup.com/privacy-policy/index.html">Privacy</a><br>
-    Not affiliated with or endorsed by Meta Platforms, Inc.
+<footer class="an-ftr"><div class="an-ftr-in">
+  <div class="an-foot">
+    <div>
+      <strong style="color:var(--text)">any<span style="color:var(--accent)">one</span>near</strong> is a product of Hook'd IT Up.<br>
+      &copy; 2026 Hook'd IT Up, Heber City, Utah
+    </div>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/keep-running/">Keep It Running</a></li>
+      <li><a href="/partners/">Partners</a></li>
+      <li><a href="https://hookditup.com/privacy-policy/index.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="tel:+14352362946">(435) 236-2946</a></li>
+    </ul></nav>
   </div>
-</footer>
+  <p class="disclaimer">Not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
 </body>
 </html>

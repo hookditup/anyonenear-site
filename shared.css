@@ -1,0 +1,21 @@
+/* Header and footer shared by the sub-pages (keep-running, partners, terms),
+   matching the homepage's. Each page defines the colour variables. */
+.an-hdr{position:sticky;top:0;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--border)}
+.an-hdr-in{max-width:1120px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+@media (min-width:640px){.an-hdr-in{padding:0 24px}}
+.an-brand img{height:32px;width:auto;display:block}
+.an-hdr ul{display:none;list-style:none;margin:0;padding:0;gap:22px}
+.an-hdr ul a{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem}
+.an-hdr ul a:hover{color:var(--accent)}
+@media (min-width:860px){.an-hdr ul{display:flex}}
+.an-cta{display:inline-flex;align-items:center;min-height:40px;padding:8px 16px;border-radius:12px;font-weight:700;font-size:.92rem;text-decoration:none;background:var(--accent);color:var(--on-accent)}
+.an-cta:hover{background:var(--accent-hover);color:var(--on-accent)}
+.an-ftr{background:var(--surface-2);border-top:1px solid var(--border);padding:36px 0 44px;margin-top:56px;font-size:.92rem;color:var(--muted)}
+.an-ftr-in{max-width:1120px;margin:0 auto;padding:0 16px}
+@media (min-width:640px){.an-ftr-in{padding:0 24px}}
+.an-foot{display:flex;flex-direction:column;gap:14px}
+@media (min-width:760px){.an-foot{flex-direction:row;justify-content:space-between;align-items:flex-start}}
+.an-foot ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+.an-foot a{color:var(--muted)}
+.an-foot a:hover{color:var(--accent)}
+.an-ftr .disclaimer{font-size:.8rem;margin-top:18px}
