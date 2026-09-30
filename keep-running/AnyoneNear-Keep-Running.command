@@ -9,7 +9,8 @@ cat <<'TXT'
 
   1. The Mac won't go to sleep on its own (the screen can still turn off).
   2. Chrome opens (hidden) when you log in, so monitoring picks up again
-     by itself after a restart.
+     by itself after a restart, with the setting that keeps the AnyoneNear
+     window loading when other windows cover it.
 
  Nothing else is changed. To undo it, run AnyoneNear-Keep-Running-Undo.command.
 
@@ -38,11 +39,27 @@ launchctl bootout "gui/$(id -u)" "$PL" 2>/dev/null
 launchctl bootstrap "gui/$(id -u)" "$PL"
 
 echo " [2/2] Opening Chrome at login..."
-osascript -e 'tell application "System Events" to if not (exists login item "Google Chrome") then make login item at end with properties {path:"/Applications/Google Chrome.app", hidden:true}' >/dev/null
+osascript -e 'tell application "System Events" to if exists login item "Google Chrome" then delete login item "Google Chrome"' >/dev/null 2>&1
+CL="$HOME/Library/LaunchAgents/com.anyonenear.chrome.plist"
+cat > "$CL" <<PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.anyonenear.chrome</string>
+  <key>ProgramArguments</key><array><string>/usr/bin/open</string><string>-g</string><string>-a</string><string>Google Chrome</string><string>--args</string><string>--disable-backgrounding-occluded-windows</string></array>
+  <key>RunAtLoad</key><true/>
+</dict></plist>
+PLIST
+launchctl bootout "gui/$(id -u)" "$CL" 2>/dev/null
+launchctl bootstrap "gui/$(id -u)" "$CL"
 
 cat <<'TXT'
 
- Done. One quick check: stay signed in to Facebook in Chrome ("Keep me signed in").
+ Done. Last steps:
+  - Quit Chrome (Chrome menu > Quit), then log out and back in, or restart,
+    so Chrome opens with the new setting.
+  - Stay signed in to Facebook in Chrome ("Keep me signed in").
+  - Leave the AnyoneNear window open (not minimized).
  Leave this Mac plugged in. Restarts are fine; shutting it down stops monitoring.
 
 TXT

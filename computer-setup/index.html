@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Computer Setup Guide | AnyoneNear</title>
+<meta name="description" content="How to set up the computer AnyoneNear runs on so it watches your Facebook groups around the clock: a dedicated computer, power and sleep settings, the Chrome setting, and one-click setup files for Windows and Mac.">
+<link rel="canonical" href="https://anyonenear.hookditup.com/keep-running/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AnyoneNear">
+<meta property="og:url" content="https://anyonenear.hookditup.com/keep-running/">
+<meta property="og:title" content="Keep It Running | AnyoneNear">
+<meta property="og:description" content="Done-for-you setup: we set up your computer so AnyoneNear can keep watching your local groups through the day, test it, and watch your uptime for 30 days.">
+<meta property="og:image" content="https://anyonenear.hookditup.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AnyoneNear: Your next customer is asking in a Facebook group right now.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Keep It Running | AnyoneNear">
+<meta name="twitter:description" content="Done-for-you setup: we set up your computer so AnyoneNear can keep watching your local groups through the day, test it, and watch your uptime for 30 days.">
+<meta name="twitter:image" content="https://anyonenear.hookditup.com/og.png">
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fc;--surface:#fff;--surface-2:#eef2fa;--text:#1b2433;--muted:#55607a;--border:#d8e0ee;--accent:#2f6bff;--accent-hover:#1f55e0;--accent-soft:#dce7ff;--on-accent:#fff;--highlight:#ff7a59;--ok:#1f7a4d;--radius:16px}
+@media (prefers-color-scheme: dark){:root{--bg:#0e1422;--surface:#161e30;--surface-2:#1c2640;--text:#eaf0fa;--muted:#a3afc6;--border:#2a3550;--accent:#6e9bff;--accent-hover:#93b5ff;--accent-soft:#1a2a55;--on-accent:#0b1530;--highlight:#ff9a7f;--ok:#5fd39a}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--accent)}a:hover{color:var(--accent-hover)}
+:focus-visible{outline:3px solid var(--highlight);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:"Sora","Plus Jakarta Sans",sans-serif;line-height:1.2;margin:0 0 .5em;text-wrap:balance}
+h1{font-size:clamp(2rem,4.5vw,2.8rem)}h2{font-size:1.5rem;margin-top:0}h3{font-size:1.1rem}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.hero{padding-block:48px 24px}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:62ch}
+.grid{display:grid;gap:18px;margin-block:28px}
+@media (min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.card.pick{border-color:var(--accent);box-shadow:0 10px 30px rgba(27,36,51,.08)}
+.price{font-family:"Sora",sans-serif;font-weight:700;font-size:1.6rem;margin:4px 0 8px}
+.price small{font-size:.9rem;color:var(--muted);font-weight:600}
+ul.checks{list-style:none;padding:0;margin:12px 0 18px}
+ul.checks li{padding-left:26px;position:relative;margin:6px 0}
+ul.checks li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border-radius:50%;background:var(--accent-soft);box-shadow:inset 0 0 0 4px var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 18px;border-radius:12px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700}
+.btn-primary{background:var(--accent);color:var(--on-accent)}.btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
+.btn-ghost{background:var(--accent-soft);color:var(--text)}.btn-ghost:hover{color:var(--text);filter:brightness(.97)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.note{font-size:.9rem;color:var(--muted)}
+section{padding-block:18px 8px}
+ol.steps{padding-left:1.2em}ol.steps li{margin:8px 0}
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}
+.why{background:var(--surface-2);border-radius:var(--radius);padding:20px 24px;margin-block:18px}
+footer{padding-block:32px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border);margin-top:32px}
+code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9em}
+</style>
+<link rel="stylesheet" href="/shared.css">
+<script src="/analytics.js" defer></script>
+<style>
+.pick-card{border:2px solid var(--accent)}
+.tag{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.dl{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+.check li{margin:6px 0}
+table.cmp{width:100%;border-collapse:collapse;font-size:.95rem;margin:10px 0}
+table.cmp th,table.cmp td{text-align:left;padding:8px 10px;border-top:1px solid var(--border);vertical-align:top}
+table.cmp th{color:var(--muted);font-weight:700;border-top:0}
+.os{display:grid;gap:18px}
+@media (min-width:760px){.os{grid-template-columns:1fr 1fr}}
+@media print{.an-hdr,.an-ftr,.dl,.no-print{display:none!important}body{font-size:12pt}.card,details{break-inside:avoid;border-color:#ccc}details{display:block}details>*{display:block}}
+</style>
+</head>
+<body>
+<header class="an-hdr"><div class="an-hdr-in">
+  <a class="an-brand" href="/" aria-label="AnyoneNear home"><picture><source srcset="/wordmark-white.svg" media="(prefers-color-scheme: dark)"><img src="/wordmark-night.svg" alt="AnyoneNear" width="193" height="32"></picture></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul></nav>
+  <a class="an-cta" data-trial-link href="https://link.hookditup.com/payment-link/6ab2d6659a013c156f1f9877">Free trial</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">Setup guide</p>
+    <h1>Keep your AnyoneNear computer running</h1>
+    <p class="lead">AnyoneNear reads your Facebook groups from Chrome on one computer. It checks them around the clock, so posts from late at night, and posts a group admin approves hours later, are waiting for you in the morning. That only works while that computer is on, awake and running Chrome. This guide shows how to set it up once so it keeps going on its own.</p>
+    <div class="btns no-print"><a class="btn btn-primary" href="#setup">Set up my computer</a><a class="btn btn-ghost" href="javascript:window.print()">Print this guide</a></div>
+  </section>
+
+  <section>
+    <div class="card pick-card">
+      <span class="tag">Recommended</span>
+      <h2>Use a computer that does only this</h2>
+      <p>The best results come from a computer that stays on all the time and does nothing but run AnyoneNear. Nobody closes Chrome, minimizes the window, shuts it down at night or takes it to a job.</p>
+      <ul class="checks">
+        <li><b>An old laptop or a small desktop is plenty.</b> Any Windows 10/11 PC or Mac that runs current Chrome. A new mini PC costs roughly $150–$300.</li>
+        <li><b>Costs about a dollar or two a month in electricity</b> for a mini PC or laptop left on all month.</li>
+        <li><b>Keep it plugged in</b>, on your internet (a network cable is best), with a screen attached. No screen? A $10 "HDMI dummy plug" makes the computer think one is there.</li>
+        <li><b>Sign in to Facebook once in Chrome</b> with "Keep me signed in", open the AnyoneNear app there and connect it (Watch → Connect this computer). Then leave it alone.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Using the computer you work on?</h2>
+    <p>That works too. A few habits make the difference:</p>
+    <table class="cmp">
+      <tr><th>Do</th><th>Avoid</th></tr>
+      <tr><td>Leave the AnyoneNear window open, even just a corner of it on screen or on a second monitor.</td><td>Minimizing it. Chrome stops loading a minimized window, so nothing gets read.</td></tr>
+      <tr><td>Leave the computer on overnight, plugged in.</td><td>Shutting it down or letting it sleep. Leads posted overnight wait until it's back.</td></tr>
+      <tr><td>Keep Chrome running (it can be in the background).</td><td>Quitting Chrome at the end of the day.</td></tr>
+      <tr><td>Use Facebook in your own Chrome windows.</td><td>Browsing in the AnyoneNear window. It moves between groups on its own.</td></tr>
+    </table>
+    <p class="note">When nobody has touched the computer for a few minutes, AnyoneNear brings its window back to the front by itself if it was hidden.</p>
+  </section>
+
+  <section id="setup">
+    <h2>Set it up in 5 minutes</h2>
+    <p>The setup file does steps 1 to 4 for you. Open it on the computer AnyoneNear runs on and follow what it says. It changes nothing else, and the "undo" file puts everything back.</p>
+    <div class="os">
+      <div class="card">
+        <h3>Windows</h3>
+        <div class="dl"><a class="btn btn-primary" href="/keep-running/AnyoneNear-Keep-Running.cmd" download>Download setup for Windows</a><a class="btn btn-ghost" href="/keep-running/AnyoneNear-Keep-Running-Undo.cmd" download>Undo</a></div>
+        <p class="note">After it downloads, double-click it. If Windows shows "Windows protected your PC", click <b>More info</b> → <b>Run anyway</b> (it's a plain text file you can open in Notepad to read first).</p>
+        <details><summary>Or do it by hand</summary>
+          <ol class="steps">
+            <li><b>Never sleep when plugged in:</b> Settings → System → Power &amp; battery → Screen and sleep → "When plugged in, put my device to sleep after" → <b>Never</b>.</li>
+            <li><b>Laptop lid:</b> Control Panel → Power Options → "Choose what closing the lid does" → When plugged in: <b>Do nothing</b>.</li>
+            <li><b>No password when it wakes:</b> Settings → Accounts → Sign-in options → "If you've been away, when should Windows require you to sign in again?" → <b>Never</b>. Screen saver: None.</li>
+            <li><b>Chrome setting:</b> right-click your Chrome shortcut → Properties → at the end of <b>Target</b>, after <code>chrome.exe"</code>, add a space and <code>--disable-backgrounding-occluded-windows</code> → OK. Close every Chrome window and open Chrome from that shortcut. To start it with Windows, press Win+R, type <code>shell:startup</code> and copy the shortcut into that folder.</li>
+            <li><b>In Chrome:</b> Settings → System → "Continue running background apps when Google Chrome is closed" → On.</li>
+          </ol>
+        </details>
+      </div>
+      <div class="card">
+        <h3>Mac</h3>
+        <div class="dl"><a class="btn btn-primary" href="/keep-running/AnyoneNear-Keep-Running.command" download>Download setup for Mac</a><a class="btn btn-ghost" href="/keep-running/AnyoneNear-Keep-Running-Undo.command" download>Undo</a></div>
+        <p class="note">After it downloads, right-click it → <b>Open</b> → Open (the first time only, since it's not from the App Store). If it won't run, open Terminal and type <code>chmod +x </code> followed by a space, drag the file into the window, press Return, and try again.</p>
+        <details><summary>Or do it by hand</summary>
+          <ol class="steps">
+            <li><b>Never sleep:</b> System Settings → Battery (or Energy) → turn on "Prevent automatic sleeping when the display is off" (on laptops: under Options, when on power adapter).</li>
+            <li><b>No password when it wakes:</b> System Settings → Lock Screen → "Require password after screen saver begins or display is turned off" → <b>Never</b>.</li>
+            <li><b>Chrome setting:</b> quit Chrome, open Terminal and run <code>open -a "Google Chrome" --args --disable-backgrounding-occluded-windows</code>. Do this each time you start Chrome on this Mac (the setup file does it for you at every login).</li>
+            <li><b>Open at login:</b> System Settings → General → Login Items → add Google Chrome (the setup file does this with the setting included).</li>
+          </ol>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Then, in Chrome on that computer</h2>
+    <ol class="steps">
+      <li><b>Stay signed in to Facebook</b> ("Keep me signed in"). If Facebook signs you out, AnyoneNear can't read your groups.</li>
+      <li><b>Open the AnyoneNear app, go to Watch and tap Start monitoring.</b> The "AnyoneNear monitoring" window opens.</li>
+      <li><b>Leave that window open</b>, somewhere on screen or on a second monitor. Optional on Windows: Microsoft PowerToys can keep it on top (click the window, press Win + Ctrl + T).</li>
+      <li><b>Restart the computer once</b> to check that Chrome and monitoring come back by themselves.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Check that it's working</h2>
+    <ul class="checks">
+      <li><b>The app's status bar</b> says "Your computer is monitoring" with a recent check time. At night it says it's checking overnight and when replies go out.</li>
+      <li><b>The Scan log</b> (Watch screen) lists every group visit. Visits should say "caught up" or "daily deep check", not "window hidden".</li>
+      <li><b>The first morning after setup,</b> open the Scan log and look for visits during the night. If they say "window hidden" while the screen was off, set the screen to never turn off (you can still switch the monitor off with its own power button).</li>
+      <li><b>If the computer stops,</b> you get one alert in the morning saying so, and when it's back it reads the last two days of each group, so late posts aren't lost.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details><summary>Does it reply to people in the middle of the night?</summary><p>No. It reads your groups around the clock, but replies wait for your hours (7 AM to 10 PM by default) so your Facebook activity looks like a person's. If you're a 24-hour business, turn on "Reply any time" in the app under Watch → Replies. Daily limits and spacing still apply.</p></details>
+    <details><summary>Will it catch posts a group admin approves hours later?</summary><p>Yes. Once a day it goes back through the last two days of each group to pick up posts that were approved late.</p></details>
+    <details><summary>Can I still use this computer?</summary><p>Yes, as long as you leave the AnyoneNear window open and don't minimize it. A dedicated computer just removes the chance of it being closed by accident.</p></details>
+    <details><summary>Is it safe to leave a computer on all the time?</summary><p>Yes. Computers are built for it. Keep it somewhere with airflow, plugged into a surge protector, and let Windows or macOS install updates. Restarts are fine; AnyoneNear picks up again by itself.</p></details>
+    <details><summary>Rather have us set it up?</summary><p>With <a href="/keep-running/">Keep It Running</a> ($99 one time) we set up your computer with you on a 20-minute screen share, test a restart together, and watch your uptime for 30 days.</p></details>
+  </section>
+</main>
+
+
+<footer class="an-ftr"><div class="an-ftr-in">
+  <div class="an-foot">
+    <div>
+      <strong style="color:var(--text)">any<span style="color:var(--accent)">one</span>near</strong> is a product of Hook'd IT Up.<br>
+      &copy; 2026 Hook'd IT Up, Heber City, Utah
+    </div>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/keep-running/">Keep It Running</a></li>
+      <li><a href="/computer-setup/">Computer setup</a></li>
+      <li><a href="/partners/">Partners</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+    </ul></nav>
+  </div>
+  <p class="disclaimer">Not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
+</body>
+</html>
