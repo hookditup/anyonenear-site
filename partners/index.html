@@ -46,6 +46,18 @@ summary{cursor:pointer;font-weight:700}
 .why{background:var(--surface-2);border-radius:var(--radius);padding:20px 24px;margin-block:18px}
 footer{padding-block:32px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border);margin-top:32px}
 code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9em}
+.join{background:var(--surface);border:2px solid var(--accent);border-radius:var(--radius);padding:24px;margin-block:22px;box-shadow:0 10px 30px rgba(27,36,51,.08);scroll-margin-top:90px}
+.fgrid{display:grid;gap:12px;margin:14px 0}
+@media (min-width:640px){.fgrid{grid-template-columns:1fr 1fr}}
+.join label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:.92rem}
+.join .opt{font-weight:500;color:var(--muted)}
+.join input,.join select{font:inherit;font-weight:500;padding:11px 12px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);min-height:46px}
+.join input:focus,.join select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.pf-err{color:#c2412d;font-weight:600;margin:10px 0 0}
+.pf-done{margin-top:6px}
+.linkbox{display:flex;gap:8px;margin:6px 0 10px}
+.linkbox input{flex:1;min-width:0;font-weight:700;color:var(--accent)}
 </style>
 <link rel="stylesheet" href="/shared.css">
 <script src="/analytics.js" defer></script>
@@ -67,6 +79,7 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
     <p class="eyebrow">Partner program · For agencies</p>
     <h1>Give your local service clients a steady line to the people asking for them.</h1>
     <p class="lead">Every day, neighbors ask their local Facebook groups who to call. AnyoneNear watches those groups for your clients, replies in their voice while they're working, follows up through Messenger, and shows them the jobs it helped win. You add it to what you offer, and we run it.</p>
+    <div class="btns" style="margin-top:16px"><a class="btn btn-primary" href="#join">Get your referral link</a></div>
   </div>
 
   <div class="grid">
@@ -105,17 +118,37 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
   <section>
     <h2>Good to know</h2>
     <details><summary>Who is it for?</summary><p>Local service businesses that get work from their community: HVAC, plumbing, roofing, electrical, landscaping, painting and similar trades.</p></details>
-    <details><summary>What does the client need?</summary><p>Chrome on a computer that's on during the day, and membership in their local Facebook groups. Monitoring runs in Chrome on their computer, so it watches only while that computer is on. Alerts and conversations reach their phone.</p></details>
+    <details><summary>What does the client need?</summary><p>A dedicated computer that stays on, awake and online 24/7, with Chrome open, and membership in their local Facebook groups. Facebook only allows this from the client's own login on their own computer, so monitoring runs there and stops when that computer is off. The free <a href="/computer-setup/">computer setup guide</a> covers it, or we can do it with <a href="/keep-running/">Keep It Running</a>.</p></details>
     <details><summary>Can clients who already use HighLevel sign up?</summary><p>Yes. Each client gets their own AnyoneNear lead inbox, separate from any HighLevel account they already have. Connecting AnyoneNear to accounts under your own HighLevel agency isn't available yet.</p></details>
     <details><summary>Is the commission paid on add-ons?</summary><p>The 20% is on the client's AnyoneNear plan. Ask us about add-ons.</p></details>
     <details><summary>Is anything guaranteed?</summary><p>No. AnyoneNear replies at a human pace, within limits that help protect each client's Facebook account, so it can't promise to be first or to win any particular job. What it does is work for your clients while they're working.</p></details>
   </section>
 
-  <div class="why">
-    <h2 style="margin-top:0">Interested?</h2>
-    <p style="margin:0 0 12px">Tell us about your agency and your clients. We'll set up your partner console and referral link.</p>
-    <div class="btns"><a class="btn btn-primary" href="tel:+14352362946">Call (435) 236-2946</a></div>
-  </div>
+  <section id="join" class="join">
+    <h2>Get your referral link</h2>
+    <p class="note" style="margin-top:-4px">Fill this in and your link shows up right here (and in your email). Sign in to the AnyoneNear app with the same email to see your clients and earnings.</p>
+    <form id="partner-form" novalidate>
+      <div class="fgrid">
+        <label>Your name<input name="name" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Agency or business<input name="agency" autocomplete="organization"></label>
+        <label><span>Website <span class="opt">(optional)</span></span><input name="website" type="url" inputmode="url" placeholder="https://"></label>
+        <label>How you'd offer it<select name="model"><option value="referral">Refer clients (you earn 20%)</option><option value="wholesale">Resell it (wholesale)</option><option value="both">Both</option></select></label>
+        <label>Local service clients today<select name="clients"><option value="">Pick one</option><option>1–5</option><option>6–20</option><option>21–50</option><option>50+</option></select></label>
+      </div>
+      <label class="hp" aria-hidden="true">Company<input name="company" tabindex="-1" autocomplete="off"></label>
+      <p class="note" id="pf-wholesale" hidden>Referral links start right away. Wholesale (adding and billing clients yourself) is reviewed first; we'll email you when it's on.</p>
+      <div class="btns"><button class="btn btn-primary" type="submit" id="pf-go">Get my link</button></div>
+      <p class="pf-err" id="pf-err" role="alert" hidden></p>
+    </form>
+    <div id="pf-done" class="pf-done" hidden>
+      <p class="eyebrow" style="margin-bottom:6px">You're in</p>
+      <h3 style="margin:0 0 8px">Your referral link</h3>
+      <div class="linkbox"><input id="pf-link" readonly><button class="btn btn-primary" type="button" id="pf-copy">Copy</button></div>
+      <p class="note" id="pf-next">Share it with your clients. When they start AnyoneNear through it, you earn 20% of what they pay, every month they stay. We've emailed it to you too. To see your clients and earnings, sign in to the <a href="https://anyonenear-app.vercel.app/">AnyoneNear app</a> with this email.</p>
+    </div>
+    <p class="note" style="margin-top:14px">Questions first? <a href="#" data-chat-open>Chat with us</a>.</p>
+  </section>
 </main>
 
 <footer class="an-ftr"><div class="an-ftr-in">
@@ -135,5 +168,49 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
   </div>
   <p class="disclaimer">Not affiliated with or endorsed by Meta Platforms, Inc.</p>
 </div></footer>
+<script>
+  // "Chat with us" buttons open the chat widget (bottom right). Without it, the FAQ.
+  document.querySelectorAll("[data-chat-open]").forEach(function(b){
+    b.addEventListener("click", function(e){
+      var w = window.leadConnector && window.leadConnector.chatWidget;
+      if (w && typeof w.openWidget === "function") { e.preventDefault(); w.openWidget(); }
+    });
+  });
+</script>
+<script>
+  // Partner signup (functions/partner-signup): the link comes back at once.
+  (function(){
+    var f = document.getElementById("partner-form");
+    if (!f) return;
+    var model = f.elements.model, note = document.getElementById("pf-wholesale"), err = document.getElementById("pf-err"), go = document.getElementById("pf-go");
+    model.addEventListener("change", function(){ note.hidden = model.value === "referral"; });
+    f.addEventListener("submit", function(e){
+      e.preventDefault(); err.hidden = true;
+      var d = {}; ["name","email","agency","website","model","clients","company"].forEach(function(k){ d[k] = (f.elements[k].value || "").trim(); });
+      if (!d.name) { err.textContent = "Enter your name."; err.hidden = false; f.elements.name.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { err.textContent = "Enter a valid email."; err.hidden = false; f.elements.email.focus(); return; }
+      if (d.website && !/^https?:\/\//i.test(d.website)) d.website = "https://" + d.website;
+      go.disabled = true; go.textContent = "Getting your link…";
+      fetch("https://citzcbytydvrrqxbzkli.supabase.co/functions/v1/partner-signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
+        .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+        .then(function(res){
+          if (!res.ok || !res.j.ok) throw new Error(res.j.error || "Something went wrong. Try again in a minute.");
+          document.getElementById("pf-link").value = res.j.link;
+          if (res.j.existing) document.getElementById("pf-next").insertAdjacentHTML("afterbegin", "You already had a link with this email, so here it is again. ");
+          else if (res.j.wholesalePending) document.getElementById("pf-next").insertAdjacentHTML("beforeend", " You asked about wholesale too: we'll review it and email you when you can add clients yourself.");
+          f.hidden = true; document.getElementById("pf-done").hidden = false;
+          document.getElementById("pf-link").select();
+        })
+        .catch(function(x){ err.textContent = x.message; err.hidden = false; go.disabled = false; go.textContent = "Get my link"; });
+    });
+    document.getElementById("pf-copy").addEventListener("click", function(){
+      var i = document.getElementById("pf-link"), b = this;
+      (navigator.clipboard ? navigator.clipboard.writeText(i.value) : Promise.reject()).catch(function(){ i.select(); document.execCommand("copy"); })
+        .finally(function(){ b.textContent = "Copied ✓"; setTimeout(function(){ b.textContent = "Copy"; }, 2000); });
+    });
+  })();
+</script>
+<!-- Website chat (HighLevel Conversation AI agent "AnyoneNear Website Chat", master sub-account) -->
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6ac586773571432bfc4807aa" defer></script>
 </body>
 </html>
