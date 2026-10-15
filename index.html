@@ -273,13 +273,6 @@ footer{background:var(--surface-2);border-top:1px solid var(--border);padding:36
 .foot a{color:var(--muted)}
 .foot a:hover{color:var(--accent)}
 .disclaimer{font-size:.8rem;margin-top:18px}
-.ref-dialog{border:0;border-radius:16px;padding:26px;max-width:420px;width:calc(100% - 32px);background:var(--surface,#fff);color:inherit;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.ref-dialog::backdrop{background:rgba(10,15,25,.55)}
-.ref-dialog h3{margin:0 0 8px}
-.ref-dialog p{margin:0 0 14px;font-size:.95rem;opacity:.85}
-.ref-dialog label{display:block;font-weight:600;margin-bottom:6px}
-.ref-dialog input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(127,127,127,.4);font:inherit;background:transparent;color:inherit}
-.ref-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
 /* What you need: the always-on computer */
 .need-section{padding-top:8px}
 .need{display:grid;gap:18px;background:var(--surface);border:2px solid var(--accent);border-radius:20px;padding:26px 22px;box-shadow:var(--shadow)}
@@ -396,7 +389,7 @@ h1.stack .trade + br{display:none}
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
-    <a class="btn btn-primary" data-trial-link href="#pricing">Free trial</a>
+    <a class="btn btn-primary" data-trial-link href="#join">Free trial</a>
   </div>
 </header>
 
@@ -415,7 +408,7 @@ h1.stack .trade + br{display:none}
           <li>See the jobs it helped you win, in dollars, next to what you pay.</li>
         </ul>
         <div class="btn-row hero-ctas">
-          <a class="btn btn-primary btn-lg" data-trial-link href="#pricing">Start your free trial</a>
+          <a class="btn btn-primary btn-lg" data-trial-link href="#join">Start your free trial</a>
           <a class="btn btn-ghost" data-upgrade-link href="https://anyonenear-app.vercel.app/#/upgrades">Already a customer? Upgrade</a>
         </div>
         <p class="fineprint">14 days free, then plans from $149/month. Cancel anytime. <a href="#need">Needs a computer that stays on 24/7.</a></p>
@@ -474,7 +467,7 @@ h1.stack .trade + br{display:none}
       <ol class="steps">
         <li>
           <h3>Pick your groups and trade</h3>
-          <p>After you order, sign in to the AnyoneNear app on your phone and tell us your business, town and trade. The group finder searches Facebook for the busiest local groups around you, or pick your own. We set up the Chrome extension and your lead inbox.</p>
+          <p>After you order, sign in to the AnyoneNear app and a short setup wizard walks you through it: your business and trade, your computer and keeping it on, the services you want leads for, and your groups. The group finder searches Facebook for the busiest local groups around you, or pick your own. Your lead inbox is set up for you.</p>
         </li>
         <li>
           <h3>We find potential buyers looking for you</h3>
@@ -566,6 +559,16 @@ h1.stack .trade + br{display:none}
           <p class="addon-note">Add-on: <a href="#addon-review-booster">Review Booster</a> asks for a review after every job you win.</p>
         </article>
         <article class="feature">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v8H3zm4-5h2v13H7zm4 3h2v10h-2zm4-7h2v17h-2zm4 9h2v8h-2z"/></svg></div>
+          <h3>See the demand before you start</h3>
+          <p>AnyoneNear looks back about a year in each of your groups and counts the posts asking for your services, month by month. You see which groups are worth it and roughly how many leads to expect.</p>
+        </article>
+        <article class="feature">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m1 15h-2v-6h2zm0-8h-2V7h2z"/></svg></div>
+          <h3>One brain for every reply</h3>
+          <p>Your thumbs up and down, and every edit you make, shape a short "how you sound" guide. The same business facts and services feed your Messenger AI (and Voice AI, if you add it), so it doesn't have to learn your business twice.</p>
+        </article>
+        <article class="feature">
           <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 1H9v2h6zm-4 13h2V8h-2zm8.03-6.61 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.96 8.96 0 0 0 12 4a9 9 0 1 0 9 9c0-2.12-.74-4.07-1.97-5.61M12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7"/></svg></div>
           <h3>How fast you replied</h3>
           <p>See how soon your replies went up after someone asked, while you were busy on the job. No more checking Facebook between calls.</p>
@@ -593,7 +596,7 @@ h1.stack .trade + br{display:none}
 
 
       <div class="plans">
-        <p class="trial-note" data-trial hidden><b>Both plans start with a free 14-day trial:</b> 300 AI lead checks, the phone app and Messenger AI. A card is needed to start; your plan begins on day 15 unless you cancel.</p>
+        <p class="trial-note" data-trial hidden><b>Both plans start with a free 14-day trial</b> with that plan's groups (3 on Starter, 5 on Pro), 300 AI lead checks, the phone app and Messenger AI. A card is needed to start; your plan begins on day 15 unless you cancel.</p>
         <p class="req-note"><b>Every plan needs a computer that stays on, with Chrome open and internet 24/7.</b> <a href="#need">Why?</a></p>
         <article class="plan" aria-labelledby="plan-starter">
           <div class="plan-top"><h3 id="plan-starter">Starter</h3></div>
@@ -612,7 +615,7 @@ h1.stack .trade + br{display:none}
             <li>Estimates, payments and jobs won on each lead</li>
             <li>Monthly report</li>
           </ul>
-          <a class="btn btn-ghost" data-trial-link href="#pricing">Try Starter free for 14 days</a>
+          <a class="btn btn-ghost" data-trial-link="starter" href="#join-starter">Try Starter free for 14 days</a>
         </article>
 
         <article class="plan featured" aria-labelledby="plan-pro">
@@ -624,11 +627,11 @@ h1.stack .trade + br{display:none}
             <li>3,000 AI lead checks per month</li>
             <li>Everything in Starter</li>
           </ul>
-          <a class="btn btn-primary" data-trial-link="pro" href="#pricing">Try Pro free for 14 days</a>
+          <a class="btn btn-primary" data-trial-link="pro" href="#join-pro">Try Pro free for 14 days</a>
         </article>
       </div>
 
-      <p class="beta">Beta pricing available. Ask about our launch coupon.</p>
+      <p class="beta">Joining during the beta? <a href="/founding/">Founding members get $50 off every month, for life, and a 30-day trial.</a></p>
       <p class="small one-line">AI lead checks are the posts our AI reviews for buying intent. Your limit resets every month on your billing date. If you reach it, lead checks pause until then or until you upgrade. You'll get a heads-up at 80%.</p>
 
       <!-- ADD-ONS -->
@@ -721,7 +724,7 @@ h1.stack .trade + br{display:none}
         </details>
         <details data-trial hidden>
           <summary>Is there a free trial?</summary>
-          <p>Yes. Starter and Pro are both free for 14 days, with 300 AI lead checks for the whole trial. A card is needed to start, and your plan begins on day 15 unless you cancel. If you use up the trial's lead checks early, start your plan from the app to keep going.</p>
+          <p>Yes. Starter and Pro are both free for 14 days, with your plan's groups (3 on Starter, 5 on Pro) and 300 AI lead checks for the whole trial. A card is needed to start, and your plan begins on day 15 unless you cancel. If you use up the trial's lead checks early, start your plan from the app to keep going.</p>
         </details>
         <details>
           <summary>How do I know it's paying off?</summary>
@@ -750,7 +753,7 @@ h1.stack .trade + br{display:none}
         <h2 id="cta-title">Stop missing the "who should I call?" posts</h2>
         <p>Pick your groups, train it once, and let the replies and follow-up run themselves.</p>
         <div class="btn-row">
-          <a class="btn btn-primary" data-trial-link href="#pricing">Start your free 14-day trial</a>
+          <a class="btn btn-primary" data-trial-link href="#join">Start your free 14-day trial</a>
           <a class="btn btn-ghost" href="#faq" data-chat-open>Questions? Chat with us</a>
         </div>
       </div>
@@ -780,15 +783,6 @@ h1.stack .trade + br{display:none}
   </div>
 </footer>
 
-<dialog id="ref-dialog" class="ref-dialog" aria-labelledby="ref-title">
-  <form id="ref-form">
-    <h3 id="ref-title">Start your free trial</h3>
-    <p>Enter the email you'll use at checkout, so your account is set up with the partner who sent you.</p>
-    <label for="ref-email">Email</label>
-    <input id="ref-email" type="email" required autocomplete="email" placeholder="you@yourbusiness.com">
-    <div class="ref-actions"><button type="button" class="btn btn-ghost" id="ref-cancel">Cancel</button><button type="submit" class="btn btn-primary">Continue to checkout</button></div>
-  </form>
-</dialog>
 <script>
   // "Chat with us" buttons open the chat widget (bottom right). Without it, the FAQ.
   document.querySelectorAll("[data-chat-open]").forEach(function(b){
@@ -879,59 +873,13 @@ h1.stack .trade + br{display:none}
   })();
 </script>
 <script>
-  // Swap these when links change.
-  var SIGNUP_URL = "https://link.hookditup.com/widget/form/vD5enk4lGYAeW4K4X6MY";
-  var UPGRADE_URL = "https://anyonenear-app.vercel.app/#/upgrades"; // the app's Upgrades screen (add-ons go on the card they already pay with)
-  // The 14-day trial payment links (Starter, Pro). Empty = every trial mention stays hidden.
-  var TRIAL_URL = "https://link.hookditup.com/payment-link/6ab2d6659a013c156f1f9877";
-  var TRIAL_PRO_URL = "https://link.hookditup.com/payment-link/6abaad4ebaea3cadef54fc07";
-  // Reseller referral: ?ref=<agency code> is remembered for 30 days and passed
-  // to the order form, whose hidden "Reseller code" field picks it up.
-  var ref = "";
-  try {
-    ref = (new URLSearchParams(location.search).get("ref") || "").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 32);
-    if (ref) localStorage.setItem("an_ref", JSON.stringify({ ref: ref, t: Date.now() }));
-    else { var saved = JSON.parse(localStorage.getItem("an_ref") || "null"); if (saved && Date.now() - saved.t < 30 * 864e5) ref = saved.ref; }
-  } catch (e) {}
-  // Both ways, so the order can be credited either from the form's hidden
-  // field (ref) or from where HighLevel records the contact came from (UTM).
-  var signup = SIGNUP_URL + (ref ? "?ref=" + encodeURIComponent(ref) + "&utm_source=partner&utm_medium=referral&utm_campaign=" + encodeURIComponent(ref) : "");
-  document.querySelectorAll("[data-signup-link]").forEach(function(a){ a.href = signup; });
+  // The app's Upgrades screen (add-ons go on the card they already pay with).
+  var UPGRADE_URL = "https://anyonenear-app.vercel.app/#/upgrades";
   document.querySelectorAll("[data-upgrade-link]").forEach(function(a){ a.href = UPGRADE_URL; });
-  if (TRIAL_URL) {
-    var q = ref ? "?ref=" + encodeURIComponent(ref) + "&utm_source=partner&utm_medium=referral&utm_campaign=" + encodeURIComponent(ref) : "";
-    document.querySelectorAll("[data-trial-link]").forEach(function(a){
-      a.href = (a.getAttribute("data-trial-link") === "pro" && TRIAL_PRO_URL ? TRIAL_PRO_URL : TRIAL_URL) + q;
-    });
-    document.querySelectorAll("[data-trial]").forEach(function(el){ el.hidden = false; });
-    // Partner visitors: HighLevel payment links can't carry the partner code,
-    // so ask for the email first and record it (ref-claim); the order is then
-    // credited to the partner. Everyone else goes straight to the payment link.
-    if (ref) {
-      var dlg = document.getElementById("ref-dialog"), target = "";
-      document.querySelectorAll("[data-trial-link]").forEach(function(a){
-        a.addEventListener("click", function(e){
-          if (!dlg || typeof dlg.showModal !== "function") return;
-          e.preventDefault(); target = a.href; dlg.showModal(); document.getElementById("ref-email").focus();
-        });
-      });
-      document.getElementById("ref-form").addEventListener("submit", function(e){
-        e.preventDefault();
-        var email = document.getElementById("ref-email").value.trim();
-        var go = function(){ location.href = target; };
-        try {
-          fetch("https://citzcbytydvrrqxbzkli.supabase.co/functions/v1/ref-claim", {
-            method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true,
-            body: JSON.stringify({ email: email, ref: ref })
-          }).then(go, go);
-          setTimeout(go, 1500);
-        } catch (err) { go(); }
-      });
-      document.getElementById("ref-cancel").addEventListener("click", function(){ dlg.close(); });
-    }
-  }
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
 </script>
+<!-- Checkout: the 2-step form on this page (step 2 is Stripe's card form) -->
+<script src="checkout.js?v=1" defer></script>
 <!-- Website chat (HighLevel Conversation AI agent "AnyoneNear Website Chat", master sub-account) -->
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6ac586773571432bfc4807aa" defer></script>
 </body>
