@@ -69,6 +69,8 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
 .steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;display:flex;align-items:center;justify-content:center}
 .steps h3{margin:0 0 4px}.steps p{margin:0;color:var(--muted)}
 .note{background:var(--accent-soft);border-radius:14px;padding:14px 18px;margin:18px 0}
+.book{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;margin-top:12px}
+.book iframe{width:100%;min-height:680px;border:0;overflow:hidden;display:block}
 </style>
 </head>
 <body>
@@ -99,8 +101,13 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
     <li><h3>Pick your services and groups</h3><p>Tick the services you offer and add the local groups where your customers ask for help. Then tap <b>Test it now</b> to see it working.</p></li>
   </ol>
 
-  <p>Would you rather we did the setup for you? <a href="/keep-running/">Keep It Running</a> is a short call where we set up the computer and the extension together.</p>
-  <p class="lead" style="font-size:1rem">Questions? Reply to the welcome email and we'll help.</p>
+  <section id="setup-call" hidden>
+    <h2>Book your free setup call</h2>
+    <p>As a founding member, <a href="/keep-running/">Keep It Running</a> is on us: a 30-minute screen share where we get AnyoneNear up and running with you. We set the computer it runs on to stay awake and keep watching your groups, connect your Facebook Page to your lead inbox, and run a test together. Have that computer ready, signed in to Facebook in Chrome.</p>
+    <div class="book"><iframe title="Book your Keep It Running setup call" scrolling="no" id="Rb1tQfFCYVTBwJ0gIGB7_booking"></iframe></div>
+  </section>
+  <p id="kir-paid">Would you rather we did the setup for you? <a href="/keep-running/">Keep It Running</a> is a short call where we set up the computer and the extension together.</p>
+  <p class="lead" style="font-size:1rem">Questions? Tap 💬 <b>Feedback</b> at the top of the app and choose "Ask a question".</p>
 </main>
 
 <footer class="an-ftr"><div class="an-ftr-in">
@@ -128,7 +135,20 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
     var first = (q.get("first_name") || q.get("firstName") || "").trim().slice(0, 40);
     if (first) document.getElementById("hi").textContent = "Welcome to AnyoneNear, " + first;
     var email = (q.get("email") || "").trim();
-    if (/^[^@\s]+@[^@\s]+$/.test(email)) document.getElementById("app-link").href = "https://anyonenear-app.vercel.app/?email=" + encodeURIComponent(email);
+    var okEmail = /^[^@\s]+@[^@\s]+$/.test(email);
+    if (okEmail) document.getElementById("app-link").href = "https://anyonenear-app.vercel.app/?email=" + encodeURIComponent(email);
+    // Founding members (?founding=1 from the founding checkout): book the free
+    // Keep It Running call right here, with their name and email filled in.
+    if (q.get("founding") === "1") {
+      var src = "https://link.hookditup.com/widget/booking/Rb1tQfFCYVTBwJ0gIGB7";
+      var pre = new URLSearchParams();
+      if (first) pre.set("first_name", first);
+      if (okEmail) pre.set("email", email);
+      document.getElementById("Rb1tQfFCYVTBwJ0gIGB7_booking").src = src + (pre.toString() ? "?" + pre : "");
+      document.getElementById("setup-call").hidden = false;
+      document.getElementById("kir-paid").hidden = true;
+      var s = document.createElement("script"); s.src = "https://link.hookditup.com/js/form_embed.js"; document.body.appendChild(s);
+    }
   } catch (e) {}
 })();
 </script>
