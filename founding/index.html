@@ -68,7 +68,9 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
 .save{display:inline-block;font-size:.8rem;font-weight:800;color:var(--ok);margin-left:6px}
 .card .btn{width:100%}
 .perks{display:grid;gap:12px;margin:18px 0}
-@media (min-width:760px){.perks{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:760px){.perks{grid-template-columns:repeat(2,1fr)}}
+.book{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:14px}
+.book iframe{width:100%;min-height:640px;border:0;overflow:hidden;display:block}
 .perk{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
 .perk h3{margin:0 0 4px;font-size:1rem}.perk p{margin:0;color:var(--muted);font-size:.95rem}
 </style>
@@ -123,9 +125,16 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
     <h2>What founding members get</h2>
     <div class="perks">
       <div class="perk"><h3>The lowest price we'll offer</h3><p>$50 off your plan every month, locked in while you stay subscribed.</p></div>
+      <div class="perk"><h3>Keep It Running, on us</h3><p>A free 30-minute setup call ($99 for everyone else): we get your computer running AnyoneNear on its own and connect your Facebook Page with you.</p></div>
       <div class="perk"><h3>30 days to try it</h3><p>Twice the regular 14-day trial, so you see real leads from your own groups before you pay.</p></div>
       <div class="perk"><h3>A say in what's next</h3><p>Tap the 💬 Feedback button on any screen of the app to report a problem, suggest an idea or ask a question. It goes straight to the people building AnyoneNear and shapes what we build next.</p></div>
     </div>
+  </section>
+
+  <section id="setup-call">
+    <h2>Book your free setup call</h2>
+    <p>Founding members get <a href="/keep-running/">Keep It Running</a> free: a 30-minute screen share where we get AnyoneNear up and running with you. We set the computer it runs on to stay awake and keep watching your groups, connect your Facebook Page to your lead inbox, and run a test together. Start your trial first, then pick a time. Have that computer ready, signed in to Facebook in Chrome.</p>
+    <div class="book"><iframe src="https://link.hookditup.com/widget/booking/Rb1tQfFCYVTBwJ0gIGB7" title="Book your Keep It Running setup call" scrolling="no" id="Rb1tQfFCYVTBwJ0gIGB7_booking" loading="lazy"></iframe></div>
   </section>
 
   <section>
@@ -168,5 +177,6 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
 </script>
 <script>window.AN_FOUNDING = true;</script>
 <script src="/checkout.js?v=1" defer></script>
+<script src="https://link.hookditup.com/js/form_embed.js" defer></script>
 </body>
 </html>
