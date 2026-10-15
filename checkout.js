@@ -113,6 +113,7 @@
     post(d).then(function (j) {
       if (j.url) { location.href = j.url; return; }
       if (j.clientSecret && j.publishableKey) return mount(j);
+      if (j.full) { err.innerHTML = j.error + ' <a href="' + (j.regularUrl || "/#join") + '">Start a regular trial</a>'; go.disabled = false; go.textContent = "Continue to card"; return; }
       throw new Error(j.error || "Checkout couldn't open. Please try again.");
     }).catch(function (x) {
       err.innerHTML = (x && x.message) || "Checkout couldn't open. Please try again.";

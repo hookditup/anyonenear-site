@@ -63,6 +63,8 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
 <link rel="stylesheet" href="/shared.css">
 <script src="/analytics.js" defer></script>
 <style>
+.spots{background:color-mix(in srgb,var(--highlight) 18%,transparent);color:var(--text)}
+.full{background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:12px 0}
 .badge{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.04em;padding:5px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);margin:0 0 12px}
 .was{text-decoration:line-through;color:var(--muted);font-weight:600;font-size:1rem;margin-left:8px}
 .save{display:inline-block;font-size:.8rem;font-weight:800;color:var(--ok);margin-left:6px}
@@ -80,6 +82,7 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
     <li><a href="/#how">How it works</a></li>
     <li><a href="/#features">Features</a></li>
     <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/support/">Support</a></li>
     <li><a href="/#faq">FAQ</a></li>
   </ul></nav>
   <a class="an-cta" data-trial-link="pro" href="#join">Claim my price</a>
@@ -87,7 +90,7 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
 
 <main class="wrap">
   <section class="hero">
-    <span class="badge">Founding members · beta</span>
+    <span class="badge">Founding members · beta</span> <span class="badge spots" id="spots" hidden></span>
     <h1>$50 off every month, for life</h1>
     <p class="lead">Join AnyoneNear while it's in beta and get a free 30-day trial (regular sign-ups get 14 days), then your founding price stays with you for as long as you stay subscribed. Cancel anytime in the app.</p>
     <div class="btns"><a class="btn btn-primary" data-trial-link="pro" href="#join">Claim my founding price</a><a class="btn btn-ghost" href="/#how">How AnyoneNear works</a></div>
@@ -146,6 +149,7 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
     </div>
     <nav aria-label="Footer"><ul>
       <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/support/">Support</a></li>
       <li><a href="/keep-running/">Keep It Running</a></li>
       <li><a href="/computer-setup/">Computer setup</a></li>
       <li><a href="/partners/">Partners</a></li>
@@ -168,6 +172,30 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
 })();
 </script>
 <script>window.AN_FOUNDING = true;</script>
-<script src="/checkout.js?v=1" defer></script>
+<script>
+// Founding spots: the real count from Stripe (start-trial ?spots). When
+// they're gone, the founding buttons point to the regular trial instead.
+(function () {
+  fetch("https://citzcbytydvrrqxbzkli.supabase.co/functions/v1/start-trial?spots=1").then(function (r) { return r.json(); }).then(function (s) {
+    if (!s || !s.ok) return;
+    var el = document.getElementById("spots");
+    if (s.open) {
+      el.textContent = s.left + " of " + s.total + " spots left";
+      el.hidden = false;
+      return;
+    }
+    el.textContent = "All " + s.total + " spots taken"; el.hidden = false;
+    var note = document.createElement("div"); note.className = "full";
+    note.innerHTML = "<b>All founding member spots are taken.</b> Thanks to everyone who joined. You can still start a regular 14-day free trial.";
+    var hero = document.querySelector(".hero"); hero.appendChild(note);
+    document.querySelectorAll("[data-trial-link]").forEach(function (a) {
+      var b = a.cloneNode(false);   // a copy drops the checkout's click handler
+      b.removeAttribute("data-trial-link"); b.href = "/#join"; b.textContent = "Start a regular free trial";
+      a.replaceWith(b);
+    });
+  }).catch(function () {});
+})();
+</script>
+<script src="/checkout.js?v=2" defer></script>
 </body>
 </html>
