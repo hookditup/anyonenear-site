@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to AnyoneNear</title>
+<meta name="description" content="You are in. Three steps and AnyoneNear starts watching your local Facebook groups.">
+<link rel="canonical" href="https://anyonenear.hookditup.com/welcome/">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AnyoneNear">
+<meta property="og:url" content="https://anyonenear.hookditup.com/welcome/">
+<meta property="og:title" content="Welcome to AnyoneNear">
+<meta property="og:description" content="Done-for-you setup: we set up your computer so AnyoneNear can keep watching your local groups through the day, test it, and watch your uptime for 30 days.">
+<meta property="og:image" content="https://anyonenear.hookditup.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AnyoneNear: Your next customer is asking in a Facebook group right now.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Welcome to AnyoneNear">
+<meta name="twitter:description" content="Done-for-you setup: we set up your computer so AnyoneNear can keep watching your local groups through the day, test it, and watch your uptime for 30 days.">
+<meta name="twitter:image" content="https://anyonenear.hookditup.com/og.png">
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fc;--surface:#fff;--surface-2:#eef2fa;--text:#1b2433;--muted:#55607a;--border:#d8e0ee;--accent:#2f6bff;--accent-hover:#1f55e0;--accent-soft:#dce7ff;--on-accent:#fff;--highlight:#ff7a59;--ok:#1f7a4d;--radius:16px}
+@media (prefers-color-scheme: dark){:root{--bg:#0e1422;--surface:#161e30;--surface-2:#1c2640;--text:#eaf0fa;--muted:#a3afc6;--border:#2a3550;--accent:#6e9bff;--accent-hover:#93b5ff;--accent-soft:#1a2a55;--on-accent:#0b1530;--highlight:#ff9a7f;--ok:#5fd39a}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--accent)}a:hover{color:var(--accent-hover)}
+:focus-visible{outline:3px solid var(--highlight);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:"Sora","Plus Jakarta Sans",sans-serif;line-height:1.2;margin:0 0 .5em;text-wrap:balance}
+h1{font-size:clamp(2rem,4.5vw,2.8rem)}h2{font-size:1.5rem;margin-top:0}h3{font-size:1.1rem}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.hero{padding-block:48px 24px}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:62ch}
+.grid{display:grid;gap:18px;margin-block:28px}
+@media (min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.card.pick{border-color:var(--accent);box-shadow:0 10px 30px rgba(27,36,51,.08)}
+.price{font-family:"Sora",sans-serif;font-weight:700;font-size:1.6rem;margin:4px 0 8px}
+.price small{font-size:.9rem;color:var(--muted);font-weight:600}
+ul.checks{list-style:none;padding:0;margin:12px 0 18px}
+ul.checks li{padding-left:26px;position:relative;margin:6px 0}
+ul.checks li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border-radius:50%;background:var(--accent-soft);box-shadow:inset 0 0 0 4px var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 18px;border-radius:12px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700}
+.btn-primary{background:var(--accent);color:var(--on-accent)}.btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
+.btn-ghost{background:var(--accent-soft);color:var(--text)}.btn-ghost:hover{color:var(--text);filter:brightness(.97)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.note{font-size:.9rem;color:var(--muted)}
+section{padding-block:18px 8px}
+ol.steps{padding-left:1.2em}ol.steps li{margin:8px 0}
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}
+.why{background:var(--surface-2);border-radius:var(--radius);padding:20px 24px;margin-block:18px}
+footer{padding-block:32px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border);margin-top:32px}
+code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9em}
+</style>
+<link rel="stylesheet" href="/shared.css">
+<script src="/analytics.js" defer></script>
+<style>
+.steps{counter-reset:s;list-style:none;padding:0;margin:20px 0;display:grid;gap:14px}
+.steps li{counter-increment:s;position:relative;padding:18px 18px 18px 64px;background:var(--surface);border:1px solid var(--border);border-radius:14px}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;display:flex;align-items:center;justify-content:center}
+.steps h3{margin:0 0 4px}.steps p{margin:0;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:14px;padding:14px 18px;margin:18px 0}
+</style>
+</head>
+<body>
+<header class="an-hdr"><div class="an-hdr-in">
+  <a class="an-brand" href="/" aria-label="AnyoneNear home"><picture><source srcset="/wordmark-white.svg" media="(prefers-color-scheme: dark)"><img src="/wordmark-night.svg" alt="AnyoneNear" width="193" height="32"></picture></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul></nav>
+  <a class="an-cta" data-trial-link href="https://link.hookditup.com/payment-link/6ab2d6659a013c156f1f9877">Free trial</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">You're in</p>
+    <h1 id="hi">Welcome to AnyoneNear</h1>
+    <p class="lead">Your free trial has started. Three steps and AnyoneNear starts watching your local Facebook groups for people asking for what you do.</p>
+    <div class="note">We've emailed you everything too. Check your inbox (and spam folder) for the email from AnyoneNear with your app link.</div>
+  </section>
+
+  <ol class="steps">
+    <li><h3>Open the AnyoneNear app</h3><p>Sign in with the email you just used. It asks for your business name, town, trade and Facebook Page, then opens the setup wizard.</p>
+      <p style="margin-top:10px"><a class="btn btn-primary" id="app-link" href="https://anyonenear-app.vercel.app/">Open the app</a></p></li>
+    <li><h3>Add the Chrome extension to a computer that stays on</h3><p>The app's setup wizard gives you the download and walks you through it in about five minutes. The extension reads your groups from that computer, so it needs to stay on, awake and online.</p>
+      <p style="margin-top:10px"><a href="/computer-setup/">How to keep that computer running</a></p></li>
+    <li><h3>Pick your services and groups</h3><p>Tick the services you offer and add the local groups where your customers ask for help. Then tap <b>Test it now</b> to see it working.</p></li>
+  </ol>
+
+  <p>Would you rather we did the setup for you? <a href="/keep-running/">Keep It Running</a> is a short call where we set up the computer and the extension together.</p>
+  <p class="lead" style="font-size:1rem">Questions? Reply to the welcome email and we'll help.</p>
+</main>
+
+<footer class="an-ftr"><div class="an-ftr-in">
+  <div class="an-foot">
+    <div>
+      <strong style="color:var(--text)">any<span style="color:var(--accent)">one</span>near</strong> is a product of Hook'd IT Up.<br>
+      &copy; 2026 Hook'd IT Up, Heber City, Utah
+    </div>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/keep-running/">Keep It Running</a></li>
+      <li><a href="/computer-setup/">Computer setup</a></li>
+      <li><a href="/partners/">Partners</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+    </ul></nav>
+  </div>
+  <p class="disclaimer">Not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
+<script>
+// The order page can pass the buyer's first name and email (?first_name=&email=).
+(function () {
+  try {
+    var q = new URLSearchParams(location.search);
+    var first = (q.get("first_name") || q.get("firstName") || "").trim().slice(0, 40);
+    if (first) document.getElementById("hi").textContent = "Welcome to AnyoneNear, " + first;
+    var email = (q.get("email") || "").trim();
+    if (/^[^@\s]+@[^@\s]+$/.test(email)) document.getElementById("app-link").href = "https://anyonenear-app.vercel.app/?email=" + encodeURIComponent(email);
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
