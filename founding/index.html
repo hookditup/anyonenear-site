@@ -180,7 +180,9 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
     if (!s || !s.ok) return;
     var el = document.getElementById("spots");
     if (s.open) {
-      el.textContent = s.left + " of " + s.total + " spots left";
+      // Nearly empty-handed "50 of 50 left" says nothing: until a couple are
+      // taken, just say there's a limit.
+      el.textContent = s.taken >= 2 ? "Only " + s.left + " of " + s.total + " spots left" : "Limited to " + s.total + " founding members";
       el.hidden = false;
       return;
     }
