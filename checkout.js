@@ -73,6 +73,7 @@
         '<label class="co-hl"><input type="checkbox" name="hasHighLevel"> <span>I already use <b>HighLevel</b> (LeadConnector) for my business. <small>We will connect your account instead of making you a new one.</small></span></label>' +
         '<p class="co-err" id="co-err" role="alert"></p>' +
         '<button class="btn btn-primary btn-lg" type="submit" id="co-go">Continue to card</button>' +
+        '<p class="co-terms" style="font-size:.82rem;opacity:.8;margin:8px 0 0">By continuing you agree to the <a href="/terms.html" target="_blank" rel="noopener">Terms</a> and <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
         '<p class="co-fine">Card needed to start. Nothing is charged for ' + DAYS + ' days. Secure checkout by Stripe.</p>' +
       '</form>' +
       '<div id="co-pay" hidden></div>' +
