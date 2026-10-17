@@ -41,6 +41,8 @@
     ".co label.f{display:block;font-weight:600;font-size:.88rem;margin:0 0 10px}",
     ".co label.f input{display:block;width:100%;margin-top:4px;padding:11px 12px;border-radius:10px;border:1px solid var(--border,rgba(127,127,127,.4));font:inherit;font-weight:400;background:transparent;color:inherit}",
     ".co-err{color:#c0392b;font-size:.9rem;margin:2px 0 10px;min-height:1px}",
+    ".co-hl{display:flex;gap:8px;align-items:flex-start;font-size:.88rem;margin:2px 0 12px;cursor:pointer}",
+    ".co-hl input{margin-top:3px}.co-hl small{display:block;color:var(--muted,#667)}",
     ".co .btn{width:100%;justify-content:center}",
     ".co-fine{font-size:.8rem;color:var(--muted,#667);margin:12px 0 0;text-align:center}",
     "#co-pay{min-height:420px}",
@@ -68,6 +70,7 @@
         '<label class="f">Last name<input name="lastName" autocomplete="family-name" maxlength="60"></label></div>' +
         '<label class="f">Email<input name="email" type="email" autocomplete="email" required maxlength="200"></label>' +
         '<label class="f">Business name<input name="business" autocomplete="organization" maxlength="100"></label>' +
+        '<label class="co-hl"><input type="checkbox" name="hasHighLevel"> <span>I already use <b>HighLevel</b> (LeadConnector) for my business. <small>We will connect your account instead of making you a new one.</small></span></label>' +
         '<p class="co-err" id="co-err" role="alert"></p>' +
         '<button class="btn btn-primary btn-lg" type="submit" id="co-go">Continue to card</button>' +
         '<p class="co-fine">Card needed to start. Nothing is charged for ' + DAYS + ' days. Secure checkout by Stripe.</p>' +
@@ -88,6 +91,7 @@
   function details() {
     var d = { plan: (form.querySelector("input[name=plan]:checked") || {}).value || "starter", founding: FOUNDING, ref: ref };
     ["firstName", "lastName", "email", "business"].forEach(function (k) { d[k] = form.elements[k].value.trim(); });
+    d.hasHighLevel = !!form.elements.hasHighLevel.checked;
     return d;
   }
   function post(body) {
