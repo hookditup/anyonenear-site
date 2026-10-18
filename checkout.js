@@ -10,7 +10,7 @@
   var PRICE = FOUNDING ? { starter: 99, pro: 199, complete: 347 } : { starter: 149, pro: 249, complete: 397 };
   var GROUPS = { starter: 3, pro: 5, complete: 5 };
   var NAME = { starter: "Starter", pro: "Pro", complete: "Complete" };
-  var NOTE = { starter: "3 Facebook groups", pro: "5 Facebook groups", complete: "Pro + full CRM + follow-up" };
+  var NOTE = { starter: "3 Facebook groups", pro: "5 Facebook groups", complete: "8 Facebook groups + full CRM + follow-up" };
   var DAYS = FOUNDING ? 30 : 14;   // the free trial: 14 days, 30 for founding members
 
   // Partner links: ?ref=<code> is remembered for 30 days and sent with the order.
