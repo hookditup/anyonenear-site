@@ -2,13 +2,15 @@
    /founding/. Step 1 here on the site (plan, name, email, business), step 2
    the card, on Stripe's secure form: embedded in the dialog when the backend
    hands back a client secret, else on Stripe's own checkout page.
-   Any element with data-trial-link="starter|pro" opens it; the page sets
+   Any element with data-trial-link="starter|pro|complete" opens it; the page sets
    window.AN_FOUNDING = true for founding member prices. */
 (function () {
   var API = "https://citzcbytydvrrqxbzkli.supabase.co/functions/v1/start-trial";
   var FOUNDING = !!window.AN_FOUNDING;
-  var PRICE = FOUNDING ? { starter: 99, pro: 199 } : { starter: 149, pro: 249 };
-  var GROUPS = { starter: 3, pro: 5 };
+  var PRICE = FOUNDING ? { starter: 99, pro: 199, complete: 347 } : { starter: 149, pro: 249, complete: 397 };
+  var GROUPS = { starter: 3, pro: 5, complete: 5 };
+  var NAME = { starter: "Starter", pro: "Pro", complete: "Complete" };
+  var NOTE = { starter: "3 Facebook groups", pro: "5 Facebook groups", complete: "Pro + full CRM + follow-up" };
   var DAYS = FOUNDING ? 30 : 14;   // the free trial: 14 days, 30 for founding members
 
   // Partner links: ?ref=<code> is remembered for 30 days and sent with the order.
@@ -31,7 +33,8 @@
     ".co-steps span.on{border-color:var(--accent,#2f6bff);color:var(--accent,#2f6bff)}",
     ".co h3{margin:0 0 4px;font-size:1.3rem}",
     ".co .co-sub{margin:0 0 16px;font-size:.92rem;color:var(--muted,#667)}",
-    ".co-plans{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 14px}",
+    ".co-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}",
+    "@media (max-width:520px){.co-plans{grid-template-columns:1fr}}",
     ".co-plans label{display:block;border:1.5px solid var(--border,#dde);border-radius:12px;padding:10px 12px;cursor:pointer}",
     ".co-plans input{position:absolute;opacity:0;pointer-events:none}",
     ".co-plans label:has(input:checked){border-color:var(--accent,#2f6bff);background:var(--accent-soft,rgba(47,107,255,.08))}",
@@ -61,9 +64,9 @@
         '<h3 id="co-title">' + (FOUNDING ? "Claim your founding member price" : "Start your free " + DAYS + "-day trial") + '</h3>' +
         '<p class="co-sub">' + (FOUNDING ? "$50 off every month, for life. 30 days free first; cancel anytime in the app." : DAYS + " days free, then your plan. Cancel anytime in the app.") + '</p>' +
         '<div class="co-plans" role="radiogroup" aria-label="Plan">' +
-          ["starter", "pro"].map(function (p) {
-            return '<label><input type="radio" name="plan" value="' + p + '"><b>' + (p === "pro" ? "Pro" : "Starter") + ' · $' + PRICE[p] + '/mo</b>' +
-              '<small>' + GROUPS[p] + ' Facebook groups' + (FOUNDING ? ' · founding price' : '') + '</small></label>';
+          ["starter", "pro", "complete"].map(function (p) {
+            return '<label><input type="radio" name="plan" value="' + p + '"><b>' + NAME[p] + ' · $' + PRICE[p] + '/mo</b>' +
+              '<small>' + NOTE[p] + (FOUNDING ? ' · founding price' : '') + '</small></label>';
           }).join("") +
         '</div>' +
         '<div class="co-row"><label class="f">First name<input name="firstName" autocomplete="given-name" required maxlength="60"></label>' +
@@ -139,7 +142,7 @@
   }
 
   function open(plan) {
-    var r = form.querySelector("input[value=" + (plan === "pro" ? "pro" : "starter") + "]"); if (r) r.checked = true;
+    var r = form.querySelector("input[value=" + (NAME[plan] ? plan : "starter") + "]"); if (r) r.checked = true;
     err.textContent = "";
     dlg.showModal();
     setTimeout(function () { form.elements.firstName.focus(); }, 30);
@@ -148,8 +151,8 @@
     a.addEventListener("click", function (e) { e.preventDefault(); open(a.getAttribute("data-trial-link")); });
   });
   document.querySelectorAll("[data-trial]").forEach(function (el) { el.hidden = false; });
-  // A link straight to the form: /#join, /#join-pro, /founding/#join
-  var h = location.hash;
-  if (h === "#join" || h === "#join-pro" || h === "#join-starter") setTimeout(function () { open(h === "#join-pro" ? "pro" : "starter"); }, 200);
+  // A link straight to the form: /#join, /#join-pro, /#join-complete, /founding/#join
+  var h = location.hash, m = /^#join(?:-(starter|pro|complete))?$/.exec(h);
+  if (m) setTimeout(function () { open(m[1] || "starter"); }, 200);
   window.anCheckout = open;
 })();

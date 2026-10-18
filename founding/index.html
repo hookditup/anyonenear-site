@@ -39,7 +39,7 @@ h1{font-size:clamp(2rem,4.5vw,2.8rem)}h2{font-size:1.5rem;margin-top:0}h3{font-s
 .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
 .lead{font-size:1.1rem;color:var(--muted);max-width:62ch}
 .grid{display:grid;gap:18px;margin-block:28px}
-@media (min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+@media (min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .card.pick{border-color:var(--accent);box-shadow:0 10px 30px rgba(27,36,51,.08)}
 .price{font-family:"Sora",sans-serif;font-weight:700;font-size:1.6rem;margin:4px 0 8px}
@@ -119,8 +119,20 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
       </ul>
       <a class="btn btn-primary" data-trial-link="pro" href="#join">Start Pro free for 30 days</a>
     </article>
+    <article class="card">
+      <h2>Complete <span class="save">Full CRM</span></h2>
+      <div class="price">$347<small>/month</small><span class="was">$397</span></div>
+      <ul class="checks">
+        <li>Everything in Pro</li>
+        <li>The full HighLevel CRM</li>
+        <li>Texting, Voice AI callbacks, website chat, booking and review requests</li>
+        <li>Follow-up for every lead source</li>
+        <li>A free onboarding call</li>
+      </ul>
+      <a class="btn btn-ghost" data-trial-link="complete" href="#join">Start Complete free for 30 days</a>
+    </article>
   </div>
-  <p class="note">Your trial uses your plan's groups (3 on Starter, 5 on Pro) and includes 300 AI lead checks. A card is needed to start; nothing is charged for 30 days. Every plan needs a computer that stays on with Chrome open (<a href="/computer-setup/">why and how</a>).</p>
+  <p class="note">Your trial uses your plan's groups (3 on Starter, 5 on Pro and Complete) and includes 300 AI lead checks. A card is needed to start; nothing is charged for 30 days. Every plan needs a computer that stays on with Chrome open (<a href="/computer-setup/">why and how</a>).</p>
 
   <section>
     <h2>What founding members get</h2>
@@ -135,7 +147,7 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
   <section>
     <h2>Questions</h2>
     <details><summary>What does "for life" mean?</summary><p>Your founding price stays the same for as long as your subscription stays active, even when regular prices change. If you cancel and come back later, regular prices apply.</p></details>
-    <details><summary>Can I switch between Starter and Pro?</summary><p>Yes, anytime in the app. You keep the founding price on whichever plan you're on.</p></details>
+    <details><summary>Can I switch between Starter, Pro and Complete?</summary><p>Yes, anytime in the app. You keep the founding price ($50 off) on whichever plan you're on.</p></details>
     <details><summary>Do I need a coupon code?</summary><p>No. The founding price is already in the checkout on this page.</p></details>
     <details><summary>What happens after I sign up?</summary><p>You sign in to the AnyoneNear app with your email and a setup wizard walks you through everything: your business, your computer, your services and your groups.</p></details>
   </section>
@@ -198,6 +210,6 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9e
   }).catch(function () {});
 })();
 </script>
-<script src="/checkout.js?v=4" defer></script>
+<script src="/checkout.js?v=5" defer></script>
 </body>
 </html>
