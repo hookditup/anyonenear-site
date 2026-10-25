@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AnyoneNear: 2 quick questions</title>
+<meta name="description" content="Tell us why you left AnyoneNear, in about 2 minutes.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fc;--surface:#fff;--surface-2:#eef2fa;--text:#1b2433;--muted:#55607a;--border:#d8e0ee;--accent:#2f6bff;--accent-hover:#1f55e0;--accent-soft:#dce7ff;--on-accent:#fff;--highlight:#ff7a59;--ok:#1f7a4d;--radius:16px}
+@media (prefers-color-scheme: dark){:root{--bg:#0e1422;--surface:#161e30;--surface-2:#1c2640;--text:#eaf0fa;--muted:#a3afc6;--border:#2a3550;--accent:#6e9bff;--accent-hover:#93b5ff;--accent-soft:#1a2a55;--on-accent:#0b1530;--highlight:#ff9a7f;--ok:#5fd39a}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--accent)}a:hover{color:var(--accent-hover)}
+:focus-visible{outline:3px solid var(--highlight);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:"Sora","Plus Jakarta Sans",sans-serif;line-height:1.2;margin:0 0 .5em;text-wrap:balance}
+h1{font-size:clamp(2rem,4.5vw,2.8rem)}h2{font-size:1.5rem;margin-top:0}h3{font-size:1.1rem}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.hero{padding-block:48px 24px}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:62ch}
+.grid{display:grid;gap:18px;margin-block:28px}
+@media (min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.card.pick{border-color:var(--accent);box-shadow:0 10px 30px rgba(27,36,51,.08)}
+.price{font-family:"Sora",sans-serif;font-weight:700;font-size:1.6rem;margin:4px 0 8px}
+.price small{font-size:.9rem;color:var(--muted);font-weight:600}
+ul.checks{list-style:none;padding:0;margin:12px 0 18px}
+ul.checks li{padding-left:26px;position:relative;margin:6px 0}
+ul.checks li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border-radius:50%;background:var(--accent-soft);box-shadow:inset 0 0 0 4px var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 18px;border-radius:12px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700}
+.btn-primary{background:var(--accent);color:var(--on-accent)}.btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
+.btn-ghost{background:var(--accent-soft);color:var(--text)}.btn-ghost:hover{color:var(--text);filter:brightness(.97)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.note{font-size:.9rem;color:var(--muted)}
+section{padding-block:18px 8px}
+ol.steps{padding-left:1.2em}ol.steps li{margin:8px 0}
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}
+.why{background:var(--surface-2);border-radius:var(--radius);padding:20px 24px;margin-block:18px}
+footer{padding-block:32px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border);margin-top:32px}
+code{background:var(--surface-2);padding:1px 6px;border-radius:6px;font-size:.9em}
+
+/* Survey (2026-10-25) */
+.q{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 18px 14px;margin:0 0 14px}
+.q h2{font-size:1.05rem;margin:0 0 4px}.q .hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:.97rem;cursor:pointer}
+.opt input{margin-top:5px;accent-color:var(--accent)}
+textarea,input[type=text]{width:100%;font:inherit;font-size:.97rem;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills label{border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:.95rem;background:var(--bg)}
+.pills input{position:absolute;opacity:0;pointer-events:none}
+.pills input:checked + span{color:var(--on-accent)}
+.pills label:has(input:checked){background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.pills label:has(input:focus-visible){outline:3px solid var(--highlight);outline-offset:2px}
+.nps{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}
+.nps label{text-align:center;padding:8px 0;border-radius:10px}
+.nps-ends{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;margin-top:4px}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);border:0;border-radius:12px;padding:13px 22px;font:inherit;font-weight:700;cursor:pointer}
+.btn:hover{background:var(--accent-hover)}.btn[disabled]{opacity:.6;cursor:default}
+.msg{background:var(--accent-soft);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+@media (max-width:520px){.nps{grid-template-columns:repeat(6,minmax(0,1fr))}}
+</style>
+<link rel="stylesheet" href="/shared.css">
+<script src="/analytics.js" defer></script>
+<style>
+.steps2{display:grid;gap:14px;margin:18px 0}
+.step2{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+.step2 .n{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;align-items:center;justify-content:center;margin-right:8px}
+.arts{list-style:none;padding:0;margin:12px 0 4px;display:grid;gap:6px}
+@media (min-width:640px){.arts{grid-template-columns:1fr 1fr}}
+.arts a{display:block;padding:10px 12px;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);background:var(--bg)}
+.arts a:hover{border-color:var(--accent)}
+.two{display:grid;gap:12px;margin-top:12px}
+@media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+.opt{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--bg)}
+.opt h3{margin:0 0 4px}.opt p{margin:0 0 12px;color:var(--muted);font-size:.95rem}
+
+/* Survey (2026-10-25) */
+.q{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 18px 14px;margin:0 0 14px}
+.q h2{font-size:1.05rem;margin:0 0 4px}.q .hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:.97rem;cursor:pointer}
+.opt input{margin-top:5px;accent-color:var(--accent)}
+textarea,input[type=text]{width:100%;font:inherit;font-size:.97rem;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills label{border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:.95rem;background:var(--bg)}
+.pills input{position:absolute;opacity:0;pointer-events:none}
+.pills input:checked + span{color:var(--on-accent)}
+.pills label:has(input:checked){background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.pills label:has(input:focus-visible){outline:3px solid var(--highlight);outline-offset:2px}
+.nps{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}
+.nps label{text-align:center;padding:8px 0;border-radius:10px}
+.nps-ends{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;margin-top:4px}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);border:0;border-radius:12px;padding:13px 22px;font:inherit;font-weight:700;cursor:pointer}
+.btn:hover{background:var(--accent-hover)}.btn[disabled]{opacity:.6;cursor:default}
+.msg{background:var(--accent-soft);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+@media (max-width:520px){.nps{grid-template-columns:repeat(6,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header class="an-hdr"><div class="an-hdr-in">
+  <a class="an-brand" href="/" aria-label="AnyoneNear home"><picture><source srcset="/wordmark-white.svg" media="(prefers-color-scheme: dark)"><img src="/wordmark-night.svg" alt="AnyoneNear" width="193" height="32"></picture></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/support/">Support</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul></nav>
+  <a class="an-cta" href="/#join">Free trial</a>
+</div></header>
+
+<main class="wrap" style="max-width:680px;padding-block:36px 56px">
+  <p class="eyebrow">2 minutes</p>
+  <h1 id="s-h">Why did you leave AnyoneNear?</h1>
+  <p style="color:var(--muted);margin:0 0 22px" id="s-lead">Seven quick questions. Every answer is read by the person who builds AnyoneNear, and all of them are optional.</p>
+  <div id="s-msg" class="msg" hidden></div>
+  <form id="s-form" hidden novalidate>
+    <section class="q"><h2>1. Why did you cancel?</h2><p class="hint">Pick all that apply.</p>
+      <label class="opt"><input type="checkbox" name="reasons" value="few_leads"> <span>Not enough leads</span></label><label class="opt"><input type="checkbox" name="reasons" value="wrong_leads"> <span>The leads weren't my kind of work</span></label><label class="opt"><input type="checkbox" name="reasons" value="price"> <span>Too expensive for what I got</span></label><label class="opt"><input type="checkbox" name="reasons" value="setup"> <span>Setup was too much hassle</span></label><label class="opt"><input type="checkbox" name="reasons" value="computer"> <span>Keeping a computer on was a problem</span></label><label class="opt"><input type="checkbox" name="reasons" value="fb_worry"> <span>Worried about my Facebook account</span></label><label class="opt"><input type="checkbox" name="reasons" value="no_time"> <span>Didn't have time to use it</span></label><label class="opt"><input type="checkbox" name="reasons" value="seasonal"> <span>Slow season / taking a break</span></label><label class="opt"><input type="checkbox" name="reasons" value="other_tool"> <span>Switching to something else</span></label><label class="opt"><input type="checkbox" name="reasons" value="just_trying"> <span>I was only trying it out</span></label><label class="opt"><input type="checkbox" name="reasons" value="other"> <span>Something else</span></label>
+      <input type="text" id="s-other" maxlength="500" placeholder="Something else? Tell us (optional)" style="margin-top:6px">
+    </section>
+    <section class="q"><h2>2. What could we improve?</h2>
+      <textarea id="s-improve" rows="3" maxlength="2000" placeholder="What got in the way, or what was missing"></textarea></section>
+    <section class="q"><h2>3. What would have kept you?</h2>
+      <textarea id="s-keep" rows="3" maxlength="2000" placeholder="A feature, a price, more help setting it up…"></textarea></section>
+    <section class="q"><h2>4. What would you be willing to pay a month for a tool like this?</h2>
+      <div class="pills" role="radiogroup"><label><input type="radio" name="pay" value="0"><span>Nothing</span></label><label><input type="radio" name="pay" value="lt50"><span>Under $50</span></label><label><input type="radio" name="pay" value="50"><span>$50–99</span></label><label><input type="radio" name="pay" value="100"><span>$100–149</span></label><label><input type="radio" name="pay" value="150"><span>$150–249</span></label><label><input type="radio" name="pay" value="250"><span>$250+</span></label></div></section>
+    <section class="q"><h2>5. What did you like most?</h2>
+      <textarea id="s-liked" rows="2" maxlength="2000" placeholder="Anything that worked well"></textarea></section>
+    <section class="q"><h2>6. How likely are you to recommend AnyoneNear to another business owner?</h2>
+      <div class="pills nps" role="radiogroup"><label><input type="radio" name="nps" value="0"><span>0</span></label><label><input type="radio" name="nps" value="1"><span>1</span></label><label><input type="radio" name="nps" value="2"><span>2</span></label><label><input type="radio" name="nps" value="3"><span>3</span></label><label><input type="radio" name="nps" value="4"><span>4</span></label><label><input type="radio" name="nps" value="5"><span>5</span></label><label><input type="radio" name="nps" value="6"><span>6</span></label><label><input type="radio" name="nps" value="7"><span>7</span></label><label><input type="radio" name="nps" value="8"><span>8</span></label><label><input type="radio" name="nps" value="9"><span>9</span></label><label><input type="radio" name="nps" value="10"><span>10</span></label></div>
+      <div class="nps-ends"><span>Not at all</span><span>Very likely</span></div></section>
+    <section class="q"><h2>7. May we follow up with you about your answers?</h2>
+      <label class="opt"><input type="checkbox" id="s-contact"> <span>Yes, you can email me</span></label></section>
+    <button class="btn" type="submit" id="s-send">Send my answers</button>
+  </form>
+</main>
+
+<footer class="an-ftr"><div class="an-ftr-in">
+  <div class="an-foot">
+    <div>
+      <strong style="color:var(--text)">any<span style="color:var(--accent)">one</span>near</strong> is a product of Hook'd IT Up.<br>
+      &copy; 2026 Hook'd IT Up, Heber City, Utah
+    </div>
+    <nav aria-label="Footer"><ul>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/support/">Support</a></li>
+      <li><a href="/keep-running/">Keep It Running</a></li>
+      <li><a href="/computer-setup/">Computer setup</a></li>
+      <li><a href="/partners/">Partners</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+    </ul></nav>
+  </div>
+  <p class="disclaimer">Not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
+<script>
+(() => {
+  const API = "https://citzcbytydvrrqxbzkli.supabase.co/functions/v1/exit-survey";
+  const t = new URLSearchParams(location.search).get("t") || "";
+  const form = document.getElementById("s-form"), msg = document.getElementById("s-msg");
+  const say = (text) => { msg.textContent = text; msg.hidden = false; };
+  if (!t) { say("This page needs the link from your email."); return; }
+  fetch(`${API}?t=${encodeURIComponent(t)}`).then((r) => r.json()).then((d) => {
+    if (!d.ok) return say(d.error || "This survey link isn't valid.");
+    if (d.answered) return say("You've already answered. Thank you!");
+    if (d.kind === "trial") {
+      document.getElementById("s-h").textContent = "Why didn't you continue after your trial?";
+      document.querySelector(".q h2").textContent = "1. Why didn't you continue?";
+    }
+    form.hidden = false;
+  }).catch(() => say("Couldn't load the survey. Please try again in a moment."));
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const v = (id) => document.getElementById(id).value.trim();
+    const picked = (n) => document.querySelector(`input[name=${n}]:checked`)?.value ?? null;
+    const answers = { reasons: [...form.querySelectorAll("input[name=reasons]:checked")].map((i) => i.value), other: v("s-other"),
+      improve: v("s-improve"), keep: v("s-keep"), pay: picked("pay"), liked: v("s-liked"), nps: picked("nps"),
+      contact: document.getElementById("s-contact").checked };
+    const btn = document.getElementById("s-send"); btn.disabled = true;
+    try {
+      const r = await fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ t, answers }) });
+      const d = await r.json();
+      if (!d.ok) { btn.disabled = false; return say(d.error || "Couldn't send. Please try again."); }
+      form.hidden = true; document.getElementById("s-lead").hidden = true;
+      document.getElementById("s-h").textContent = "Thank you";
+      say("Your answers are in. They go straight to the person who builds AnyoneNear.");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch { btn.disabled = false; say("Couldn't send. Please try again."); }
+  });
+})();
+</script>
+<!-- Website chat (HighLevel Conversation AI agent "AnyoneNear Website Chat", master sub-account) -->
+
+</body>
+</html>
